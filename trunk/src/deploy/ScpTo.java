@@ -6,10 +6,10 @@ import java.io.*;
 
 public class ScpTo{
 	public static void scpCli(String file1,String context){
-//		if(arg.length!=2){
-//			System.err.println("usage: java ScpTo file1 user@remotehost:file2");
-//			System.exit(-1);
-//		}
+		if(file1 == null || context == null){
+			System.err.println("file and context error");
+			System.exit(-1);
+		}
 
 		FileInputStream fis=null;
 		try{
