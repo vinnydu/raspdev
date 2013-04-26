@@ -14,7 +14,7 @@ import deploy.ScpTo;
 public class App {
 	public static void main(String[] args) throws IOException, JSchException, ParserConfigurationException, SAXException {
 
-     File fXmlFile = new File("./src/scpConf.xml");
+     File fXmlFile = new File("./src/raspConf.xml");
      //parsing scpConf.xml
      DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
  	 DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
