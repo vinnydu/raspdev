@@ -5,7 +5,7 @@ Prerequisiti:
 Scaricare il progetto con svn, eseguendo un checkout da un clientSVN. Per esempio
 da terminale:
 
-{{{ svn checkout https://raspdev.googlecode.com/svn/trunk/ raspdev --username NICKNAME_GOOGLE_CODE}}}
+{{{ svn checkout https://raspdev.googlecode.com/svn/trunk/ raspdev --username EMAIL_GOOGLE_CODE}}}
 
 Ora si può lavorare con Eclipse:
 New-->Plug-in Project-->Nel nome inserire raspdev-->togliere spunta a "use default location" e inserire il progetto scaricato
