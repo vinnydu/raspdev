@@ -16,10 +16,8 @@ jsch (si trova in Lib, nella directory del progetto)
 
 Ora bisogna configurare raspConf.xml con i propri dati e path.
 
-Prima di eseguire consiglio di fare un clean del progetto
-
-sul menubar Project-->Clean
+Prima di eseguire consiglio di fare un clean del progetto: (sul menubar) Project-->Clean
 
 Eseguire: Run as --> Eclipse Application
 
-sul menubar del nuovo Eclipse aperto si trova Raspdev, cliccare su Emulation
+sul menubar del nuovo Eclipse aperto si trova Raspdev, cliccare su Emulation.
