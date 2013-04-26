@@ -22,4 +22,4 @@ Prima di eseguire consiglio di fare un clean del progetto: (sul menubar) Project
 
 Eseguire: Run as --> Eclipse Application
 
-sul menubar del nuovo Eclipse aperto si trova Raspdev, cliccare su Emulation.
+Sul menubar del nuovo Eclipse aperto si trova Raspdev, cliccare su Emulation.
