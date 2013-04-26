@@ -14,7 +14,7 @@ Caricato il progetto eseguire:
 click destro sul progetto-->Build Path-->Configure build path-->add jars-->selezionare
 jsch (si trova in Lib, nella directory del progetto)
 
-Ora bisogna configurare raspConf.xml con i propri dati e path (per il momento inserire solo i dati che riguardano qemu e tralasciare quella della macchina raspberry dove fare il deploy).
+Ora bisogna configurare raspConf.xml con i propri dati e path (per il momento inserire solo i dati che riguardano qemu e tralasciare quelli della macchina raspberry dove fare il deploy).
 
 Prima di eseguire consiglio di fare un clean del progetto: (sul menubar) Project-->Clean
 
