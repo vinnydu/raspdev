@@ -18,7 +18,8 @@ Ora bisogna configurare raspConf.xml con i propri dati e path.
 
 Prima di eseguire consiglio di fare un clean del progetto
 
-sulla toolbar Project-->Clean
+sul menubar Project-->Clean
 
 Eseguire: Run as --> Eclipse Application
 
+sul menubar del nuovo Eclipse aperto si trova Raspdev, cliccare su Emulation
