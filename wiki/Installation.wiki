@@ -1,0 +1,24 @@
+Prerequisiti:
+-qemu
+-svn
+
+Scaricare il progetto con svn, eseguendo un checkout da un clientSVN. Per esempio
+da terminale:
+
+svn checkout https://NOME PROGETTO.googlecode.com/svn/trunk/ NOME PROGETTO --username NICKNAME
+
+Ora si può lavorare con Eclipse:
+New-->Plug-in Project-->Nel nome inserire raspdev-->togliere spunta a "use default location" e inserire il progetto scaricato
+
+Caricato il progetto eseguire:
+click destro sul progetto-->Build Path-->Configure build path-->add jars-->selezionare
+jsch (si trova in Lib, nella directory del progetto)
+
+Ora bisogna configurare raspConf.xml con i propri dati e path.
+
+Prima di eseguire consiglio di fare un clean del progetto
+
+sulla toolbar Project-->Clean
+
+Eseguire: Run as --> Eclipse Application
+
