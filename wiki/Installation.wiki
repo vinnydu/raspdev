@@ -1,20 +1,20 @@
 ==RASPDEV PLUGIN INSTALLATION==
 
 Prerequisiti:
--qemu
--svn
+- qemu
+- svn
 
 Scaricare il progetto con svn, eseguendo un checkout da un clientSVN. Per esempio
 da terminale:
 
 {{{ svn checkout https://raspdev.googlecode.com/svn/trunk/ raspdev --username EMAIL_GOOGLE_CODE}}}
 
-Ora si può lavorare con Eclipse:
-New-->Plug-in Project-->Nel nome inserire raspdev-->togliere spunta a "use default location" e inserire il progetto scaricato
+Su Eclipse andare su:
+New-->Plug-in Project-->Nel nome inserire raspdev-->togliere la spunta a "use default location" e inserire il progetto scaricato.
 
 Caricato il progetto eseguire:
 click destro sul progetto-->Build Path-->Configure build path-->add jars-->selezionare
-jsch (si trova in Lib, nella directory del progetto)
+jsch (si trova in lib, nella directory del progetto).
 
 Ora bisogna configurare raspConf.xml con i propri dati e path (per il momento inserire solo i dati che riguardano qemu e tralasciare quelli della macchina raspberry dove fare il deploy).
 
