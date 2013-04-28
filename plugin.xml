@@ -5,7 +5,7 @@
    <extension
          point="org.eclipse.ui.commands">
       <category
-            name="Sample Category"
+            name="RaspDev"
             id="raspdev.commands.category">
       </category>
       <command
@@ -23,7 +23,11 @@
          point="org.eclipse.ui.handlers">
       <handler
             commandId="raspdev.commands.sampleCommand"
-            class="raspdev.handlers.SampleHandler">
+            class="raspdev.handlers.SampleHandlerEmu">
+      </handler>
+      <handler
+            commandId="raspdev.commands.sampleCommand2"
+            class="raspdev.handlers.SampleHandlerDep">
       </handler>
    </extension>
    <extension
@@ -55,18 +59,7 @@
             </command>
          </menu>
       </menuContribution>
-      <menuContribution
-            locationURI="toolbar:org.eclipse.ui.main.toolbar?after=additions">
-         <toolbar
-               id="raspdev.toolbars.sampleToolbar">
-            <command
-                  commandId="raspdev.commands.sampleCommand"
-                  icon="icons/sample.gif"
-                  tooltip="Say hello world"
-                  id="raspdev.toolbars.sampleCommand">
-            </command>
-         </toolbar>
-      </menuContribution>
+     
    </extension>
 
 </plugin>
