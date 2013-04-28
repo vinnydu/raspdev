@@ -1,10 +1,11 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Raspdev
-Bundle-SymbolicName: raspdev
+Bundle-SymbolicName: Raspdev;singleton:=true
 Bundle-Version: 1.0.0.qualifier
 Bundle-Activator: raspdev.Activator
 Require-Bundle: org.eclipse.ui,
- org.eclipse.core.runtime
+ org.eclipse.core.runtime,
+ com.jcraft.jsch;bundle-version="0.1.46"
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
