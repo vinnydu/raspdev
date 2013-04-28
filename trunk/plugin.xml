@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+
+   <extension
+         point="org.eclipse.ui.commands">
+      <category
+            name="Sample Category"
+            id="raspdev.commands.category">
+      </category>
+      <command
+            name="Emulation"
+            categoryId="raspdev.commands.category"
+            id="raspdev.commands.sampleCommand">
+      </command>
+      <command
+            name="Deploy"
+            categoryId="raspdev.commands.category"
+            id="raspdev.commands.sampleCommand2">
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.handlers">
+      <handler
+            commandId="raspdev.commands.sampleCommand"
+            class="raspdev.handlers.SampleHandler">
+      </handler>
+   </extension>
+   <extension
+         point="org.eclipse.ui.bindings">
+      <key
+            commandId="raspdev.commands.sampleCommand"
+            contextId="org.eclipse.ui.contexts.window"
+            sequence="M1+6"
+            schemeId="org.eclipse.ui.defaultAcceleratorConfiguration">
+      </key>
+   </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            locationURI="menu:org.eclipse.ui.main.menu?after=additions">
+         <menu
+               label="RaspDev"
+               mnemonic="M"
+               id="raspdev.menus.sampleMenu">
+            <command
+                  commandId="raspdev.commands.sampleCommand"
+                  mnemonic="S"
+                  id="raspdev.menus.sampleCommand">
+            </command>
+            <command
+                  commandId="raspdev.commands.sampleCommand2"
+                  mnemonic="D"
+                  id="raspdev.menus.sampleCommand2">
+            </command>
+         </menu>
+      </menuContribution>
+      <menuContribution
+            locationURI="toolbar:org.eclipse.ui.main.toolbar?after=additions">
+         <toolbar
+               id="raspdev.toolbars.sampleToolbar">
+            <command
+                  commandId="raspdev.commands.sampleCommand"
+                  icon="icons/sample.gif"
+                  tooltip="Say hello world"
+                  id="raspdev.toolbars.sampleCommand">
+            </command>
+         </toolbar>
+      </menuContribution>
+   </extension>
+
+</plugin>
