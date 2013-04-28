@@ -5,7 +5,7 @@ import javax.swing.*;
 import java.io.*;
 
 public class ScpTo{
-	public static void scpCli(String file1,String context){
+	public static void scpCli(String file1,String context, int port){
 		if(file1 == null || context == null){
 			System.err.println("file and context error");
 			System.exit(-1);
@@ -24,7 +24,7 @@ public class ScpTo{
 			System.out.println("host= "+host);
 			System.out.println("file2= "+rfile);
 			JSch jsch=new JSch();
-			Session session=jsch.getSession(user, host, 22);
+			Session session=jsch.getSession(user, host, port);
 
 			// username and password will be given via UserInfo interface.
 			UserInfo ui=new MyUserInfo();
