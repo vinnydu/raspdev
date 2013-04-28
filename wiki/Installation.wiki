@@ -18,10 +18,12 @@ Caricato il progetto eseguire:
 click destro sul progetto-->Build Path-->Configure build path-->add jars-->selezionare
 jsch (si trova in lib, nella directory del progetto).
 
-Ora bisogna configurare raspConf.xml con i propri dati e path (per il momento inserire solo i dati che riguardano qemu e tralasciare quelli della macchina raspberry dove fare il deploy).
+Ora bisogna configurare raspConf.xml con i propri dati e path.
 
 Prima di eseguire consiglio di fare un clean del progetto: (sul menubar) Project-->Clean
 
+Controllare, clickando su MANIFEST.MF--> tab Dependencies, che ci sia "com.jcraft.jsch"
+
 Eseguire: Run as --> Eclipse Application
 
-Sul menubar del nuovo Eclipse aperto si trova Raspdev, cliccare su Emulation.
+Sul menubar del nuovo Eclipse aperto si trova Raspdev, cliccare su Emulation o su Deploy.
