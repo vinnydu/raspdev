@@ -2,9 +2,10 @@
 <remote>
     <user>pi</user>
     <host>192.168.1.100</host>
-    <hostpath>/home/pi/</hostpath>
+    <port>22</port>
+    <host-path>/home/pi/</host-path>
     <filename>students.py</filename>
-    <qemupath>/home/sprawl/opt/qemu/qemu-1.4.1/arm-softmmu/qemu-system-arm</qemupath>
-    <qemukernel>/home/sprawl/opt/qemu/kernel-qemu</qemukernel>
-    <raspbianpath>/home/sprawl/opt/qemu/2012-08-08-wheezy-armel.img</raspbianpath>
+    <qemu-path>/home/sprawl/opt/qemu/qemu-1.4.1/arm-softmmu/qemu-system-arm</qemu-path>
+    <qemu-kernel>/home/sprawl/opt/qemu/kernel-qemu</qemu-kernel>
+    <raspbian-path>/home/sprawl/opt/qemu/2012-08-08-wheezy-armel.img</raspbian-path>
 </remote>
