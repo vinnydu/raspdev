@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <remote>
     <user>pi</user>
-    <host>192.168.1.100</host>
-    <port>22</port>
+    <host>localhost</host>
+    <port>2222</port>
     <host-path>/home/pi/</host-path>
     <filename>students.py</filename>
     <qemu-path>/home/sprawl/opt/qemu/qemu-1.4.1/arm-softmmu/qemu-system-arm</qemu-path>
