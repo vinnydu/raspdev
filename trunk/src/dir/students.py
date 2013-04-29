@@ -1,4 +1,6 @@
 #lista in un dizionario
+import pydevd
+#pydevd.settrace();
 max_points=[25,25,50,25,100]
 assignments=['hw ch 1','hw ch 2','quiz  ','hw ch 3','test']
 students={'max':max_points}
