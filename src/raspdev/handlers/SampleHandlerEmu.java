@@ -24,7 +24,9 @@ import org.xml.sax.SAXException;
  * @see org.eclipse.core.commands.AbstractHandler
  */
 public class SampleHandlerEmu extends AbstractHandler {
-	
+
+	private static String OS = System.getProperty("os.name").toLowerCase();
+
 	/**
 	 * The constructor.
 	 */
@@ -43,15 +45,15 @@ public class SampleHandlerEmu extends AbstractHandler {
 				"Execution Raspbian wheezy");
 		List<String> args = new ArrayList<String>();
 		File homedir = new File(System.getProperty("user.home"));
-	    File fXmlFile = new File(homedir, "/raspdev/src/raspConf.xml");
+		File fXmlFile = new File(homedir, "/raspdev/src/raspConf.xml");
 		String path = fXmlFile.getAbsolutePath();
 		DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
-	 	DocumentBuilder dBuilder = null;
-	 	Document doc = null;
-	 	
+		DocumentBuilder dBuilder = null;
+		Document doc = null;
+
 		try {
 			dBuilder = dbFactory.newDocumentBuilder();
-		    doc = dBuilder.parse(path);
+			doc = dBuilder.parse(path);
 		} catch (ParserConfigurationException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
@@ -63,26 +65,35 @@ public class SampleHandlerEmu extends AbstractHandler {
 			e.printStackTrace();
 		}
 		doc.getDocumentElement().normalize();
-		
-		args.add (doc.getElementsByTagName("qemu-path").item(0).getTextContent()); // command name
-		args.add ("-kernel"); // optional args added as separate list items
-		args.add (doc.getElementsByTagName("qemu-kernel").item(0).getTextContent());
-		args.add ("-cpu");
-		args.add ("arm1176");
-		args.add ("-m");
-		args.add ("256");
-		args.add ("-M");
-		args.add ("versatilepb");
-		args.add ("-no-reboot");
-		args.add ("-serial");
-		args.add ("stdio");
-		args.add ("-append");
-		args.add ("root=/dev/sda2 panic=1");
-		args.add ("-hda");
-		args.add (doc.getElementsByTagName("raspbian-path").item(0).getTextContent());
-		args.add ("-redir");
-		args.add ("tcp:2222::22");
-	
+
+
+		if(OS.indexOf("win") >= 0){
+
+			System.out.println(OS);
+
+		}
+		if((OS.indexOf("mac") >= 0) || (OS.indexOf("nux") >= 0)){
+
+			args.add (doc.getElementsByTagName("qemu-path").item(0).getTextContent()); // command name
+			args.add ("-kernel"); // optional args added as separate list items
+			args.add (doc.getElementsByTagName("qemu-kernel").item(0).getTextContent());
+			args.add ("-cpu");
+			args.add ("arm1176");
+			args.add ("-m");
+			args.add ("256");
+			args.add ("-M");
+			args.add ("versatilepb");
+			args.add ("-no-reboot");
+			args.add ("-serial");
+			args.add ("stdio");
+			args.add ("-append");
+			args.add ("root=/dev/sda2 panic=1");
+			args.add ("-hda");
+			args.add (doc.getElementsByTagName("raspbian-path").item(0).getTextContent());
+			args.add ("-redir");
+			args.add ("tcp:2222::22");
+		}
+
 		ProcessBuilder pb = new ProcessBuilder (args);
 		Process p = null;
 		try {
@@ -93,8 +104,8 @@ public class SampleHandlerEmu extends AbstractHandler {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} 
-		
-		
+
+
 		return null;
 	}
 }
