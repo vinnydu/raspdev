@@ -33,7 +33,8 @@ public class SampleHandlerDep extends AbstractHandler {
 				"Raspdev",
 				"Execution Deploy on Raspberry");
 		
-		 File fXmlFile = new File("./raspdev/src/raspConf.xml");
+		 File homedir = new File(System.getProperty("user.home"));
+	     File fXmlFile = new File(homedir, "/raspdev/src/raspConf.xml");
 	     //parsing scpConf.xml
 	     DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
 	 	 DocumentBuilder dBuilder = null;
@@ -53,7 +54,7 @@ public class SampleHandlerDep extends AbstractHandler {
 		}
 	 	 
 	 	 doc.getDocumentElement().normalize();
-	 	 File filename = new File("./raspdev/src/dir/"+doc.getElementsByTagName("filename").item(0).getTextContent());
+	 	 File filename = new File(homedir,"/raspdev/src/dir/"+doc.getElementsByTagName("filename").item(0).getTextContent());
 
 	     String path = filename.getAbsolutePath();
 	     int port = Integer.parseInt(doc.getElementsByTagName("port").item(0).getTextContent());

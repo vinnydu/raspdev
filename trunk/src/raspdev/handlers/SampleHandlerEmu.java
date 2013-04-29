@@ -42,7 +42,8 @@ public class SampleHandlerEmu extends AbstractHandler {
 				"Raspdev",
 				"Execution Raspbian wheezy");
 		List<String> args = new ArrayList<String>();
-		File fXmlFile = new File("./raspdev/src/raspConf.xml");
+		File homedir = new File(System.getProperty("user.home"));
+	    File fXmlFile = new File(homedir, "/raspdev/src/raspConf.xml");
 		String path = fXmlFile.getAbsolutePath();
 		DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
 	 	DocumentBuilder dBuilder = null;
