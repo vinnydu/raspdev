@@ -32,13 +32,13 @@ public class SampleHandlerDep extends AbstractHandler {
 				window.getShell(),
 				"Raspdev",
 				"Execution Deploy on Raspberry");
-		
-		 File homedir = new File(System.getProperty("user.home"));
-	     File fXmlFile = new File(homedir, "/raspdev/src/raspConf.xml");
-	     //parsing scpConf.xml
-	     DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
-	 	 DocumentBuilder dBuilder = null;
-	 	 Document doc = null;
+
+		File homedir = new File(System.getProperty("user.home"));
+		File fXmlFile = new File(homedir, "/raspdev/src/raspConf.xml");
+		//parsing scpConf.xml
+		DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
+		DocumentBuilder dBuilder = null;
+		Document doc = null;
 		try {
 			dBuilder = dbFactory.newDocumentBuilder();
 			doc = dBuilder.parse(fXmlFile);
@@ -52,17 +52,17 @@ public class SampleHandlerDep extends AbstractHandler {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-	 	 
-	 	 doc.getDocumentElement().normalize();
-	 	 File filename = new File(homedir,"/raspdev/src/dir/"+doc.getElementsByTagName("filename").item(0).getTextContent());
 
-	     String path = filename.getAbsolutePath();
-	     int port = Integer.parseInt(doc.getElementsByTagName("port").item(0).getTextContent());
-	     String user = doc.getElementsByTagName("user").item(0).getTextContent();
-	     String host = doc.getElementsByTagName("host").item(0).getTextContent();
-	     String hostPath = doc.getElementsByTagName("host-path").item(0).getTextContent();
-	     ScpTo.scpCli(path, user +"@"+ host +":"+ hostPath,port);
-		
+		doc.getDocumentElement().normalize();
+		File filename = new File(homedir,"/raspdev/src/dir/"+doc.getElementsByTagName("filename").item(0).getTextContent());
+
+		String path = filename.getAbsolutePath();
+		int port = Integer.parseInt(doc.getElementsByTagName("port").item(0).getTextContent());
+		String user = doc.getElementsByTagName("user").item(0).getTextContent();
+		String host = doc.getElementsByTagName("host").item(0).getTextContent();
+		String hostPath = doc.getElementsByTagName("host-path").item(0).getTextContent();
+		ScpTo.scpCli(path, user +"@"+ host +":"+ hostPath,port);
+
 		return null;
 	}
 
