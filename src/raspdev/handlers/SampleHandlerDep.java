@@ -53,7 +53,7 @@ public class SampleHandlerDep extends AbstractHandler {
 		}
 	 	 
 	 	 doc.getDocumentElement().normalize();
-	 	 File filename = new File("./src/dir/"+doc.getElementsByTagName("filename").item(0).getTextContent());
+	 	 File filename = new File("./raspdev/src/dir/"+doc.getElementsByTagName("filename").item(0).getTextContent());
 
 	     String path = filename.getAbsolutePath();
 	     int port = Integer.parseInt(doc.getElementsByTagName("port").item(0).getTextContent());
