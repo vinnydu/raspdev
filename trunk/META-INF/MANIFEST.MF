@@ -6,6 +6,11 @@ Bundle-Version: 1.0.0.qualifier
 Bundle-Activator: raspdev.Activator
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
- com.jcraft.jsch;bundle-version="0.1.46"
+ com.jcraft.jsch;bundle-version="0.1.46",
+ org.apache.commons.io;bundle-version="2.0.1",
+ org.apache.commons.lang;bundle-version="2.6.0",
+ org.apache.log4j;bundle-version="1.2.15"
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-ClassPath: lib/jtar-1.1.jar,
+ .
