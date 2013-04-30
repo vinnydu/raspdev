@@ -2,10 +2,7 @@ package raspdev.handlers;
 
 import java.io.File;
 import java.io.IOException;
-
-import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.DocumentBuilderFactory;
-import javax.xml.parsers.ParserConfigurationException;
+import java.util.Arrays;
 
 import org.eclipse.core.commands.AbstractHandler;
 import org.eclipse.core.commands.ExecutionEvent;
@@ -14,15 +11,22 @@ import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.handlers.HandlerUtil;
 import org.w3c.dom.Document;
-import org.xml.sax.SAXException;
 
-import deploy.ScpTo;
+import raspdev.ParsConf;
+
+import com.jcraft.jsch.JSchException;
+
+import deploy.Jscp;
+import deploy.SecureContext;
+
+//import deploy.ScpTo;
 
 public class SampleHandlerDep extends AbstractHandler {
 
 	public SampleHandlerDep() {
 		// TODO Auto-generated constructor stub
 	}
+
 
 	@Override
 	public Object execute(ExecutionEvent event) throws ExecutionException {
@@ -33,37 +37,36 @@ public class SampleHandlerDep extends AbstractHandler {
 				"Raspdev",
 				"Execution Deploy on Raspberry");
 
-		File homedir = new File(System.getProperty("user.home"));
-		File fXmlFile = new File(homedir, "/raspdev/src/raspConf.xml");
-		//parsing scpConf.xml
-		DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
-		DocumentBuilder dBuilder = null;
-		Document doc = null;
-		try {
-			dBuilder = dbFactory.newDocumentBuilder();
-			doc = dBuilder.parse(fXmlFile);
-		} catch (ParserConfigurationException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (SAXException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-
-		doc.getDocumentElement().normalize();
-		File filename = new File(homedir,"/raspdev/src/dir/"+doc.getElementsByTagName("filename").item(0).getTextContent());
-
-		String path = filename.getAbsolutePath();
-		int port = Integer.parseInt(doc.getElementsByTagName("port").item(0).getTextContent());
+		ParsConf pars = new ParsConf();
+		pars.generatePars();
+		Document doc = pars.getDoc();
+		File homedir = pars.getHomedir();
 		String user = doc.getElementsByTagName("user").item(0).getTextContent();
 		String host = doc.getElementsByTagName("host").item(0).getTextContent();
 		String hostPath = doc.getElementsByTagName("host-path").item(0).getTextContent();
-		ScpTo.scpCli(path, user +"@"+ host +":"+ hostPath,port);
+		String pathProg = doc.getElementsByTagName("path-project-todeploy").item(0).getTextContent();
+		String privateKey = doc.getElementsByTagName("private-key").item(0).getTextContent();
 
+		File filename = new File(homedir,pathProg);
+		String path = filename.getAbsolutePath();
+		SecureContext context = new SecureContext(user,host);
+
+		// set optional security configurations.
+		context.setTrustAllHosts(true);
+		context.setPrivateKeyFile(new File(homedir,privateKey));
+
+		try {
+			Jscp.exec(context,path, hostPath, Arrays.asList("logs/log[0-9]*.txt","backups")  );
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (JSchException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		return null;
 	}
+
+
 
 }
