@@ -67,9 +67,9 @@ public class SampleHandlerEmu extends AbstractHandler {
 
 
 		ProcessBuilder pb = new ProcessBuilder (args);
-		Process p = null;
+		//Process p = null;
 		try {
-			p = pb.start();
+			 pb.start();
 		} 
 		catch (IOException e) {
 			// TODO Auto-generated catch block
