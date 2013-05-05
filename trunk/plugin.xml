@@ -61,5 +61,97 @@
       </menuContribution>
      
    </extension>
+   <extension
+         point="org.eclipse.ui.newWizards">
+    <category
+            name="RaspDev"
+            id="raspdev.wizards.category">
+      </category>
+  <wizard
+     id = "raspdev.wizards.wiz1"
+     name = "RaspProject"
+     class = "raspdev.wizards.RaspWizard"
+     category = "raspdev.wizards.category">
+         
+         </wizard>
+   </extension>
+   <extension
+         point="org.eclipse.ui.views">
+      <view
+            class="org.eclipse.ui.navigator.CommonNavigator"
+            icon="icons/sample.gif"
+            id="raspnavigator"
+            name="RaspView">
+      </view>
+   </extension>
+   <extension
+         point="org.eclipse.ui.navigator.viewer">
+      <viewerActionBinding
+            viewerId="raspnavigator">
+         <includes>
+            <actionExtension
+                  pattern="org.eclipse.ui.navigator.resources.*">
+            </actionExtension>
+         </includes>
+      </viewerActionBinding>
+      <viewerContentBinding
+            viewerId="raspnavigator">
+         <includes>
+            <contentExtension
+                  pattern="org.eclipse.ui.navigator.resourceContent">
+            </contentExtension>
+            <contentExtension
+                  pattern="org.eclipse.ui.navigator.resources.filters.*">
+            </contentExtension>
+            <contentExtension
+                  pattern="org.eclipse.ui.navigator.resources.linkHelper">
+            </contentExtension>
+            <contentExtension
+                  pattern="org.eclipse.ui.navigator.resources.workingSets">
+            </contentExtension>
+         </includes>
+      </viewerContentBinding>
+   </extension>
+   <extension
+         point="org.eclipse.ui.perspectives">
+         <perspective
+            name="RaspDev"
+            icon="icons/full/cview16/resource_persp.png"
+            class="org.eclipse.ui.internal.ResourcePerspective"
+            id="org.eclipse.ui.resourcePerspective">
+      </perspective>
+   </extension>
+   <extension
+         point="org.eclipse.ui.perspectiveExtensions">
+         <perspectiveExtension 
+	targetID="org.eclipse.ui.resourcePerspective">
+	<actionSet id="org.eclipse.jdt.debug.ui.JDTDebugActionSet"/>
+    	<view id="org.eclipse.jdt.debug.ui.DisplayView" 
+        	relative="org.eclipse.debug.ui.ExpressionView" 
+    		relationship="stack"/>	
+        <view id="org.eclipse.jdt.ui.PackageExplorer" 
+                relative="org.eclipse.debug.ui.DebugView" 
+                relationship="stack"
+                visible="false"/>
+        <view id="org.eclipse.jdt.ui.TypeHierarchy" 
+                relative="org.eclipse.debug.ui.DebugView" 
+                relationship="stack"
+                visible="false"/>
+        <view id="org.eclipse.search.SearchResultView" 
+                relative="org.eclipse.debug.ui.ConsoleView" 
+                relationship="stack"
+                visible="false"/> 
+    	<viewShortcut id="org.eclipse.jdt.debug.ui.DisplayView"/>
+  </perspectiveExtension> 
+   </extension>
+   <extension
+         id="raspdev.RasProj"
+         point="org.eclipse.core.resources.natures">
+          <runtime>
+           <run class="raspdev.natures.ProjectNature"/> 
+       </runtime> 
+       <one-of-nature id="raspdev.nature.dir"/>
+       <options allowLinking="false"/>
+   </extension>
 
 </plugin>
