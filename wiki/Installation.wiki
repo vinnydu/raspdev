@@ -15,7 +15,7 @@ In "Source folder" scrivere src. In "Output folder" scrivere bin.
 Premere Next e poi si Fine.
 
 Caricato il progetto eseguire:
-click destro sul progetto-->Build Path-->Configure build path-->add jars-->selezionare tutti i jar che si trovano della cartella Lib.
+click destro sul progetto-->Build Path-->Configure build path-->add jars-->selezionare tutti i jar che si trovano nella cartella Lib.
 
 Ora bisogna configurare raspConf.xml con i propri dati e path.
 
