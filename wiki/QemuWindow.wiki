@@ -13,9 +13,10 @@ The installation is quite simple, a ready to use package is available for downlo
 
 The package includes: qemu and a raspbian image(already installed and configured).
 
+
 = How to Run Qemu =
 
-
+Qemu can be started using run.bat. The application is ready to run. 
 
 
 
