@@ -30,9 +30,9 @@ In order to correctly install QEMU on OSX the Brew package manager is needed.
   * 3. Run Brew
   {{{ brew doctor }}}
   * 4. Install dependencies
-  {{{ brew install pkg-config }}}
-  {{{ brew install jpeg }}}
-  {{{ brew install gnutls }}}
-  {{{ brew install glib }}}
-  {{{ brew install pixman }}}
-  {{{ brew install sdl }}}
+  {{{ brew install pkg-config 
+  brew install jpeg 
+  brew install gnutls 
+  brew install glib 
+  brew install pixman
+  brew install sdl }}}
