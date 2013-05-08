@@ -33,4 +33,4 @@ All the following steps are to be performed using the command line interface
   {{{ cd ../devices }}}
 
   * 6. Run the instance
-  {{{ qemu-system-arm -kernel kernel-qemu -cpu arm1176 -m 256 -M versatilepb -no-reboot -serial stdio -append "root=/dev/sda2 panic=1" -hda mydevice1-2012-08-08-wheezy-armel.img }}}
+  {{{ qemu-system-arm -kernel kernel-qemu -cpu arm1176 -m 256 -M versatilepb -no-reboot -serial stdio -append "root=/dev/sda2 panic=1" -hda mydevice1-2012-08-08-wheezy-armel.img -redir tcp:2222::22}}}
