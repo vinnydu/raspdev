@@ -25,6 +25,12 @@ The user can easily customize the .bat file to add new features to the virtual m
 
 After the loading procedure is completed, the user can log in with username "pi" and password "raspberry".
 
+= X Window System =
+
+X Window System is available in the package, the user can start the windows system with the comand "startx".
+
+
+
 
 
 Add your content here.  Format your content with:
