@@ -13,7 +13,7 @@ The installation is quite simple, a ready to use package is available for downlo
 
 The package includes: qemu and a raspbian image(already installed and configured).
 
-The operating system wheezy raspbian has been used.
+The operating system wheezy raspbian has been used for the package, the user can change the operating system if needed.
 
 = How to Run Qemu =
 
