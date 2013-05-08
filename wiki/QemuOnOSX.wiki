@@ -41,5 +41,5 @@ In order to correctly install QEMU on OSX the Brew package manager is needed.
   If brewing gmp fails, use the following walk around
   {{{ brew edit gmp }}}
   Add *--with-pic* to the configure line
-* 5. Install qemu
+  * 5. Install qemu
   {{{ brew install qemu }}}
