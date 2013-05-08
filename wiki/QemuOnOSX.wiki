@@ -23,9 +23,9 @@ Installing QEMU on Windows
 == Details ==
 
 In order to correctly install QEMU on OSX the Brew package manager is needed.
-  # Open the Terminal application.
-  # Install Brew
+  1. Open the Terminal application.
+  2. Install Brew
   {{{ ruby -e "$(curl -fsSkL raw.github.com/mxcl/homebrew/go)" }}}
-  # Run Brew
+  3. Run Brew
   {{{ brew doctor }}}
-  # Brew dependencies
+  4. Brew dependencies
