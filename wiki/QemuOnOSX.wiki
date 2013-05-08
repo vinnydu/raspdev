@@ -43,7 +43,7 @@ In order to correctly install QEMU on OSX the Brew package manager is needed.
   Add *--with-pic* to the configure line
 
   * 5. Use qemu-1.2.2
-  {{{ brew edit emu }}}
+  {{{ brew edit qemu }}}
   modify url and signature as follow
 {{{
   url 'http://wiki.qemu-project.org/download/qemu-1.2.1.tar.bz2'
