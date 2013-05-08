@@ -2,7 +2,11 @@
 
 = Introduction =
 
-Add your content here.
+The virtuation of a raspberry pi machine can be easily achieved using qemu.
+
+QEMU (short for "Quick EMUlator") is a free and open-source software product that performs hardware virtualization.
+
+
 
 
 = Details =
