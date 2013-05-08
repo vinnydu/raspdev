@@ -1,5 +1,5 @@
 Scaricare il .jar del plugin,
 
-Configurare il RaspConf xml per la propria macchina.
+Configurare il RaspConf.xml per la propria macchina.
 
 Inserire il .jar nella directory dropins di Eclipse e se que'ultimo è aperto, riavviarlo.
