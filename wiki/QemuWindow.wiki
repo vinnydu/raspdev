@@ -19,7 +19,7 @@ The operating system wheezy raspbian has been used for the package, the user can
 
 Qemu can be started double clicking the file run.bat. The application is ready to run. It should work quite well on any Windows system.
 
-The user can easily customize the .bat file to add new features to the virtual machine.
+The user can easily customize the .bat file to add new features to the virtual machine, for example, changing the size of the RAM.
 
 = How to log in  =
 
