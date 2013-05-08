@@ -16,7 +16,7 @@ The package includes: qemu and a raspbian image(already installed and configured
 
 = How to Run Qemu =
 
-Qemu can be started using run.bat. The application is ready to run. 
+Qemu can be started double clicking the file run.bat. The application is ready to run. It should work quite well on any Windows system.
 
 
 
