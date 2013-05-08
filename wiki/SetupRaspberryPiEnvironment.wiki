@@ -14,8 +14,11 @@ OSX
 
 All the following steps are to be performed using the command line interface
 
-  * 1. Navigate to your RaspDev SDK directory
-  {{{ cd raspdev/images }}}
+  * 1. Navigate to your RaspDev SDK directory and download the linux kernel for QEMU
+ {{{
+  cd raspdev/images
+  wget http://xecdesign.com/downloads/linux-qemu/kernel-qemu
+}}}
 
   * 2. Download an image
   {{{ wget http://files.velocix.com/c1410/images/debian/7/2012-08-08-wheezy-armel/2012-08-08-wheezy-armel.zip }}}
