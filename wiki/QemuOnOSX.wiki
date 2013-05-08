@@ -16,7 +16,9 @@ In the future a custom version of QEMU tailored on the target board will be prov
 For now just follow the directions in order to install the standard version on your development machine.
 
 Other guides to install QEMU on Linux and Windows boxes are available here:
+
 Installing QEMU on Linux
+
 Installing QEMU on Windows
 
 
