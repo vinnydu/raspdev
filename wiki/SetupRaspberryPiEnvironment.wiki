@@ -18,16 +18,16 @@ All the following steps are to be performed using the command line interface
   {{{ cd raspdev/images }}}
 
   * 2. Download an image
-  {{{ wget http://nigdzie.org/raspberrypi/images/raspbian/2013-02-09-wheezy-raspbian/2013-02-09-wheezy-raspbian.zip }}}
+  {{{ wget http://files.velocix.com/c1410/images/debian/7/2012-08-08-wheezy-armel/2012-08-08-wheezy-armel.zip }}}
 
   * 3. Unzip the image
-  {{{ unzip 2013-02-09-wheezy-raspbian.zip }}}
+  {{{ unzip 2012-08-08-wheezy-armel.zip }}}
 
-  * 4. Copy the unzipped image in your device folder
-  {{{ cp 2013-02-09-wheezy-raspbian.img ../devices/mydevice1-2012-10-28-wheezy-raspbian.img }}}
+  * 4. Move the unzipped image in your device folder
+  {{{ mv 2012-08-08-wheezy-armel.img ../devices/mydevice1-2012-08-08-wheezy-armel.img }}}
 
   * 5. Change the working directory
   {{{ cd ../devices }}}
 
   * 6. Run the instance
-  {{{ qemu-system-arm -kernel kernel-qemu -cpu arm1176 -m 256 -M versatilepb -no-reboot -serial stdio -append "root=/dev/sda2 panic=1" -hda mydevice1-2012-10-28-wheezy-raspbian.img }}}
+  {{{ qemu-system-arm -kernel kernel-qemu -cpu arm1176 -m 256 -M versatilepb -no-reboot -serial stdio -append "root=/dev/sda2 panic=1" -hda mydevice1-2012-08-08-wheezy-armel.img }}}
