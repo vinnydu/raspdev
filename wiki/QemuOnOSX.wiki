@@ -1,4 +1,4 @@
-# Step by step guide to install QEMU on your OSX machine
+# Step by step guide to install QEMU on your OSX machine #
 
 = How to install qemu on OSX 10.8 =
 
