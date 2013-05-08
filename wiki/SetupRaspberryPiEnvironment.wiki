@@ -1,13 +1,24 @@
-#summary One-sentence summary of this page.
+#summary How to setup the Raspberry Pi development environment.
 
 = Introduction =
 
-Add your content here.
+Virtually any Raspberry Pi compatible OS image could be used to setup your development environment and the highly specialised image sharing is encouraged. The following guide is about how to setup all you need in order to deploy, execute and debug python code on a real or emulated Raspberry Pi device.
+
+Special instructions are provided for qemu emulation. Please find all details about how to install qemu on your development machine in the following guides.
+Linux
+Windows
+OSX
 
 
 = Details =
 
-Add your content here.  Format your content with:
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
+All the following steps are to be performed using the command line interface
+
+  * 1. Navigate to your RaspDev SDK directory
+  {{{ cd raspdev/images }}}
+
+  * 2. Download an image
+  {{{ wget http://nigdzie.org/raspberrypi/images/raspbian/2013-02-09-wheezy-raspbian/2013-02-09-wheezy-raspbian.zip }}}
+
+  * 3. Unzip the image
+  {{{ unzip 2013-02-09-wheezy-raspbian.zip }}}
