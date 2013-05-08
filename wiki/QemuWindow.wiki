@@ -20,6 +20,10 @@ Qemu can be started double clicking the file run.bat. The application is ready t
 
 The user can easily customize the .bat file to add new features to the virtual machine.
 
+= How to log in  =
+
+After the loading procedure is completed, the user can log in with username "pi" and password "raspberry".
+
 
 
 Add your content here.  Format your content with:
