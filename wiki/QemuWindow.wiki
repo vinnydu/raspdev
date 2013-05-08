@@ -18,6 +18,8 @@ The package includes: qemu and a raspbian image(already installed and configured
 
 Qemu can be started double clicking the file run.bat. The application is ready to run. It should work quite well on any Windows system.
 
+The user can easily customize the .bat file to add new features to the virtual machine.
+
 
 
 Add your content here.  Format your content with:
