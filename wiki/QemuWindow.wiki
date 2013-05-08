@@ -7,9 +7,12 @@ The virtuation of a raspberry pi machine can be easily achieved using qemu.
 QEMU (short for "Quick EMUlator") is a free and open-source software product that performs hardware virtualization.
 
 
+= Package =
 
+The installation is quite simple, a ready to use package is available for download in the "Downloads" Section.
 
-= Details =
+The package includes: qemu and a raspbian image(already installed and configured).
+
 
 Add your content here.  Format your content with:
   * Text in *bold* or _italic_
