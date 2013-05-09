@@ -19,8 +19,6 @@ import com.jcraft.jsch.JSchException;
 import deploy.Jscp;
 import deploy.SecureContext;
 
-//import deploy.ScpTo;
-
 public class SampleHandlerDep extends AbstractHandler {
 
 	public SampleHandlerDep() {
@@ -40,20 +38,20 @@ public class SampleHandlerDep extends AbstractHandler {
 		ParsConf pars = new ParsConf();
 		pars.generatePars();
 		Document doc = pars.getDoc();
-		File homedir = pars.getHomedir();
 		String user = doc.getElementsByTagName("user").item(0).getTextContent();
 		String host = doc.getElementsByTagName("host").item(0).getTextContent();
 		String hostPath = doc.getElementsByTagName("host-path").item(0).getTextContent();
 		String pathProg = doc.getElementsByTagName("path-project-todeploy").item(0).getTextContent();
 		String privateKey = doc.getElementsByTagName("private-key").item(0).getTextContent();
 
-		File filename = new File(homedir,pathProg);
+		File filename = new File(pathProg);
 		String path = filename.getAbsolutePath();
 		SecureContext context = new SecureContext(user,host);
 
 		// set optional security configurations.
 		context.setTrustAllHosts(true);
-		context.setPrivateKeyFile(new File(homedir,privateKey));
+
+		context.setPrivateKeyFile(new File(privateKey));
 
 		try {
 			Jscp.exec(context,path, hostPath, Arrays.asList("logs/log[0-9]*.txt","backups")  );
