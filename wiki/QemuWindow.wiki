@@ -2,7 +2,7 @@
 
 = Introduction =
 
-The virtuation of a raspberry pi machine can be easily achieved using qemu.
+The virtualization of a raspberry pi machine can be easily achieved using qemu.
 
 QEMU (short for "Quick EMUlator") is a free and open-source software product that performs hardware virtualization.
 
@@ -28,7 +28,5 @@ After the loading procedure is completed, the user can log in with username "pi"
 = X Window System =
 
 X Window System is available in the package, the user can start the windows system with the comand "startx".
-
-
 
 
