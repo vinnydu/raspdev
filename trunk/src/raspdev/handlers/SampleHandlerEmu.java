@@ -67,7 +67,6 @@ public class SampleHandlerEmu extends AbstractHandler {
 
 
 		ProcessBuilder pb = new ProcessBuilder (args);
-		//Process p = null;
 		try {
 			 pb.start();
 		} 
