@@ -10,7 +10,6 @@ import org.xml.sax.SAXException;
 
 public class ParsConf {
 
-	private File homedir ;
 	private final File fXmlFile ;
 	private Document doc = null;
 	
@@ -18,15 +17,14 @@ public class ParsConf {
 	
 	public ParsConf() {
 		// TODO Auto-generated constructor stub
-	
-		homedir = new File(System.getProperty("user.home"));
-		fXmlFile = new File(homedir, "/raspdev/src/raspConf.xml");
+		fXmlFile = new File("raspdev/src/raspConf.xml");
 	}
 
 
 	public void generatePars() {
 		
 		String path = fXmlFile.getAbsolutePath();
+		System.out.println(path);
 		DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
 		DocumentBuilder dBuilder = null;
 
@@ -46,9 +44,6 @@ public class ParsConf {
 		doc.getDocumentElement().normalize();
 	}
 
-	public File getHomedir() {
-		return homedir;
-	}
 	public File getfXmlFile() {
 		return fXmlFile;
 	}
