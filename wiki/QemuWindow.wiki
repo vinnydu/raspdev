@@ -9,7 +9,7 @@ QEMU (short for "Quick EMUlator") is a free and open-source software product tha
 
 = Package =
 
-The installation is quite simple, a ready to use package is available for download in the "Downloads" Section.
+The installation is quite simple, a ready to use package is available for download http://sourceforge.net/projects/rpiqemuwindows/.
 
 The package includes: qemu and a raspbian image(already installed and configured).
 
@@ -28,5 +28,3 @@ After the loading procedure is completed, the user can log in with username "pi"
 = X Window System =
 
 X Window System is available in the package, the user can start the windows system with the comand "startx".
-
-
