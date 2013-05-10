@@ -1,4 +1,4 @@
-#summary How to Install wxPython (Windows platform / Ecplise).
+#summary How to Install wxPython (Windows platform / Eclipse).
 
 = Introduction =
 
