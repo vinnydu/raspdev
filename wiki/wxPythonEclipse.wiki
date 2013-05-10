@@ -16,8 +16,10 @@ wxPython can be downloaded from the official site: http://www.wxpython.org/downl
 The user can choose between the 32 or 64 bit version, the supported version of  Python are 2.6 and 2.7.
 
 
+= wxPython =
 
-Add your content here.  Format your content with:
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
+After the installation, wxPython should immediately work on ecplise, if does not, you should check path and version of Python.
+
+Alternatively, you can install manually wxPython  with the command python -c "import wx" (in your Python Directory).
+
+  
