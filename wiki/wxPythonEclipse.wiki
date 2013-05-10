@@ -11,6 +11,12 @@ Other popular alternatives are PyGTK and PyQt. Like wxWidgets, wxPython is free 
 
 = Download wxPython  =
 
+wxPython can be downloaded from the official site: http://www.wxpython.org/download.php
+
+The user can choose between the 32 or 64 bit version, the supported version of  Python are 2.6 and 2.7.
+
+
+
 Add your content here.  Format your content with:
   * Text in *bold* or _italic_
   * Headings, paragraphs, and lists
