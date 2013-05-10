@@ -1,0 +1,17 @@
+#summary How to Install wxPython (Windows platform / Ecplise).
+
+= Introduction =
+
+wxPython is a wrapper for the cross-platform GUI API. It is one of the alternatives to Tkinter, which is bundled with Python. 
+
+It is implemented as a Python extension module (native code). 
+
+Other popular alternatives are PyGTK and PyQt. Like wxWidgets, wxPython is free software..
+
+
+= Download wxPython  =
+
+Add your content here.  Format your content with:
+  * Text in *bold* or _italic_
+  * Headings, paragraphs, and lists
+  * Automatic links to other wiki pages
