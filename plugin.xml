@@ -18,44 +18,48 @@
             categoryId="raspdev.commands.category"
             id="raspdev.commands.sampleCommand2">
       </command>
+      <command
+            name="Device"
+            categoryId="raspdev.commands.category"
+            id="raspdev.commands.sampleCommand3">
+      </command>
    </extension>
    <extension
          point="org.eclipse.ui.handlers">
       <handler
             commandId="raspdev.commands.sampleCommand"
-            class="raspdev.handlers.SampleHandlerEmu">
+            class="raspdev.handlers.ExecuteEmulation">
       </handler>
       <handler
             commandId="raspdev.commands.sampleCommand2"
-            class="raspdev.handlers.SampleHandlerDep">
+            class="raspdev.handlers.ExecuteDeploy">
+      </handler>
+      <handler
+            commandId="raspdev.commands.sampleCommand3"
+            class="raspdev.handlers.OpenDevice">
       </handler>
    </extension>
-   <extension
-         point="org.eclipse.ui.bindings">
-      <key
-            commandId="raspdev.commands.sampleCommand"
-            contextId="org.eclipse.ui.contexts.window"
-            sequence="M1+6"
-            schemeId="org.eclipse.ui.defaultAcceleratorConfiguration">
-      </key>
-   </extension>
+   
    <extension
          point="org.eclipse.ui.menus">
       <menuContribution
             locationURI="menu:org.eclipse.ui.main.menu?after=additions">
          <menu
                label="RaspDev"
-               mnemonic="M"
                id="raspdev.menus.sampleMenu">
             <command
                   commandId="raspdev.commands.sampleCommand"
-                  mnemonic="S"
                   id="raspdev.menus.sampleCommand">
             </command>
             <command
                   commandId="raspdev.commands.sampleCommand2"
-                  mnemonic="D"
                   id="raspdev.menus.sampleCommand2">
+            </command>
+            <command
+                  commandId="raspdev.commands.sampleCommand3"
+                  id="raspdev.menus.sampleCommand3"
+                  label="Open Device Manager"
+                  style="push">
             </command>
          </menu>
       </menuContribution>
@@ -75,43 +79,8 @@
          
          </wizard>
    </extension>
-   <extension
-         point="org.eclipse.ui.views">
-      <view
-            class="org.eclipse.ui.navigator.CommonNavigator"
-            icon="icons/sample.gif"
-            id="raspnavigator"
-            name="RaspView">
-      </view>
-   </extension>
-   <extension
-         point="org.eclipse.ui.navigator.viewer">
-      <viewerActionBinding
-            viewerId="raspnavigator">
-         <includes>
-            <actionExtension
-                  pattern="org.eclipse.ui.navigator.resources.*">
-            </actionExtension>
-         </includes>
-      </viewerActionBinding>
-      <viewerContentBinding
-            viewerId="raspnavigator">
-         <includes>
-            <contentExtension
-                  pattern="org.eclipse.ui.navigator.resourceContent">
-            </contentExtension>
-            <contentExtension
-                  pattern="org.eclipse.ui.navigator.resources.filters.*">
-            </contentExtension>
-            <contentExtension
-                  pattern="org.eclipse.ui.navigator.resources.linkHelper">
-            </contentExtension>
-            <contentExtension
-                  pattern="org.eclipse.ui.navigator.resources.workingSets">
-            </contentExtension>
-         </includes>
-      </viewerContentBinding>
-   </extension>
+  
+  
    <extension
          point="org.eclipse.ui.perspectives">
          <perspective
@@ -121,37 +90,14 @@
             id="org.eclipse.ui.resourcePerspective">
       </perspective>
    </extension>
+  
    <extension
-         point="org.eclipse.ui.perspectiveExtensions">
-         <perspectiveExtension 
-	targetID="org.eclipse.ui.resourcePerspective">
-	<actionSet id="org.eclipse.jdt.debug.ui.JDTDebugActionSet"/>
-    	<view id="org.eclipse.jdt.debug.ui.DisplayView" 
-        	relative="org.eclipse.debug.ui.ExpressionView" 
-    		relationship="stack"/>	
-        <view id="org.eclipse.jdt.ui.PackageExplorer" 
-                relative="org.eclipse.debug.ui.DebugView" 
-                relationship="stack"
-                visible="false"/>
-        <view id="org.eclipse.jdt.ui.TypeHierarchy" 
-                relative="org.eclipse.debug.ui.DebugView" 
-                relationship="stack"
-                visible="false"/>
-        <view id="org.eclipse.search.SearchResultView" 
-                relative="org.eclipse.debug.ui.ConsoleView" 
-                relationship="stack"
-                visible="false"/> 
-    	<viewShortcut id="org.eclipse.jdt.debug.ui.DisplayView"/>
-  </perspectiveExtension> 
-   </extension>
-   <extension
-         id="raspdev.RasProj"
+         id="raspdev.natures.raspNature"
          point="org.eclipse.core.resources.natures">
           <runtime>
            <run class="raspdev.natures.ProjectNature"/> 
        </runtime> 
-       <one-of-nature id="raspdev.nature.dir"/>
        <options allowLinking="false"/>
    </extension>
-
+  
 </plugin>
