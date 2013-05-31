@@ -2,6 +2,7 @@ package raspdev.wizards;
 
 import java.net.URI;
 
+import org.eclipse.core.resources.IContainer;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IConfigurationElement;
 import org.eclipse.core.runtime.IExecutableExtension;
@@ -25,8 +26,7 @@ public class RaspWizard extends Wizard implements INewWizard , IExecutableExtens
 	private static final String PAGE_NAME = Messages.RaspWizard_1;
 	private WizardNewProjectCreationPage _pageOne;
 	private IConfigurationElement _configurationElement;
-//	protected PageOne one;
-//
+	protected PageOne one;
 //	protected PageTwo two;
 
 
@@ -45,11 +45,11 @@ public class RaspWizard extends Wizard implements INewWizard , IExecutableExtens
 		_pageOne = new WizardNewProjectCreationPage(PAGE_NAME);
 		_pageOne.setTitle(Messages.RaspWizard_2);
 		_pageOne.setDescription(Messages.RaspWizard_3);
-//		one = new PageOne();
+		one = new PageOne();
 //
 //		two = new PageTwo();
 
-//		addPage(one);
+		addPage(one);
 //
 //		addPage(two);
 
@@ -62,6 +62,7 @@ public class RaspWizard extends Wizard implements INewWizard , IExecutableExtens
 	public boolean performFinish() {
 
 		String name = _pageOne.getProjectName();
+	
 	    URI location = null;
 	    if (!_pageOne.useDefaults()) {
 	        location = _pageOne.getLocationURI();

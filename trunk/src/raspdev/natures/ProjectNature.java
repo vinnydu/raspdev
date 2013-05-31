@@ -7,7 +7,7 @@ import org.eclipse.core.runtime.CoreException;
  
 public class ProjectNature implements IProjectNature {
  
-    public static final String NATURE_ID = "raspdev.nature.dir"; //$NON-NLS-1$
+    public static final String NATURE_ID = "raspdev.natures.raspNature"; //$NON-NLS-1$
  
     @Override
     public void configure() throws CoreException {
