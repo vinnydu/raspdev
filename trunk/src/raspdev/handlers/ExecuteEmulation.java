@@ -63,7 +63,7 @@ public class ExecuteEmulation extends AbstractHandler {
 		args.add ("-hda");
 		args.add (doc.getElementsByTagName("raspbian-path").item(0).getTextContent());
 		args.add ("-redir");
-		args.add ("tcp:2222::22");
+		args.add ("tcp:"+doc.getElementsByTagName("port").item(0).getTextContent()+"::22");
 
 
 		ProcessBuilder pb = new ProcessBuilder (args);

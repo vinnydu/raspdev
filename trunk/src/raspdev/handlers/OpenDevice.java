@@ -21,6 +21,7 @@ public class OpenDevice extends AbstractHandler{
 			System.out.println(dialog.getQemuPath());
 			System.out.println(dialog.getKernel());
 			System.out.println(dialog.getSOPath());
+			System.out.println(dialog.getPort());
 		}
 
 		return null;
