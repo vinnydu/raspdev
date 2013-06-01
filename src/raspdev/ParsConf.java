@@ -80,7 +80,7 @@ public class ParsConf {
 //		doc.getElementsByTagName("raspbian-path").item(0).setTextContent(textContent);
 //		
 //	}
-	public void setEmuValues(String qemuPath, String qemuKernel, String soPath)
+	public void setEmuValues(String qemuPath, String qemuKernel, String soPath, String portForWard)
 	{
 		XMLOutputter xmlOutput = new XMLOutputter();
 		SAXBuilder builder = new SAXBuilder();
@@ -94,6 +94,7 @@ public class ParsConf {
 			rootNode.getChild("qemu-path").setText(qemuPath);
 			rootNode.getChild("qemu-kernel").setText(qemuKernel);
 			rootNode.getChild("raspbian-path").setText(soPath);
+			rootNode.getChild("port").setText(portForWard);
 			xmlOutput.output(docj, new FileWriter(path));
 			
 		} catch (IOException e) {

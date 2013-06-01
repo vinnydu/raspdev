@@ -22,10 +22,12 @@ public class DeviceManager extends TitleAreaDialog{
 	  private Text qemuPathText;
 	  private Text qemuKernelText;
 	  private Text soPathText;
+	  private Text portForWardText;
 	  private String qemuPath;
 	  private String qemuKernel;
 	  private String soPath;
-	
+	  private String portForWard;
+	  
 	public DeviceManager(Shell parentShell) {
 	
 		// TODO Auto-generated constructor stub
@@ -110,6 +112,13 @@ public class DeviceManager extends TitleAreaDialog{
 	    gridData.horizontalAlignment = GridData.FILL;
 	    soPathText = new Text(parent, SWT.BORDER);
 	    soPathText.setLayoutData(gridData);
+	    Label label4 = new Label(parent, SWT.NONE);
+	    label4.setText("Port for redirect");
+	    gridData = new GridData();
+	    gridData.grabExcessHorizontalSpace = true;
+	    gridData.horizontalAlignment = GridData.FILL;
+	    portForWardText = new Text(parent, SWT.BORDER);
+	    portForWardText.setLayoutData(gridData);
 	    return parent;
 	  }
 
@@ -180,6 +189,10 @@ public class DeviceManager extends TitleAreaDialog{
 		      setErrorMessage("Please maintain the SO path");
 		      valid = false;
 		    }
+	    if (portForWardText.getText().length() == 0) {
+		      setErrorMessage("Please maintain the port");
+		      valid = false;
+		    }
 	    return valid;
 	  }
 	  
@@ -199,7 +212,8 @@ public class DeviceManager extends TitleAreaDialog{
 	      //pc.setQemuPath(qemuKernel);
 	      soPath = soPathText.getText();
 	      //pc.setQemuPath(soPath);
-	      pc.setEmuValues(qemuPath, qemuKernel, soPath);
+	      portForWard = portForWardText.getText();
+	      pc.setEmuValues(qemuPath, qemuKernel, soPath, portForWard);
 
 	  }
 
@@ -220,6 +234,10 @@ public class DeviceManager extends TitleAreaDialog{
 	  
 	  public String getSOPath() {
 		    return soPath;
+	  }
+	  
+	  public String getPort() {
+		    return portForWard;
 	  }
 
 	
