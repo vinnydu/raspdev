@@ -22,6 +22,8 @@ public class OpenDevice extends AbstractHandler{
 			System.out.println(dialog.getKernel());
 			System.out.println(dialog.getSOPath());
 			System.out.println(dialog.getPort());
+			System.out.println(dialog.getWidth());
+			System.out.println(dialog.geHeight());
 		}
 
 		return null;
