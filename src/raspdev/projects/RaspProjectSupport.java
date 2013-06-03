@@ -1,9 +1,13 @@
 package raspdev.projects;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 
 import java.net.URI;
+import java.net.URL;
+import java.util.Scanner;
 
 import org.eclipse.core.resources.IContainer;
 import org.eclipse.core.resources.IFile;
@@ -134,12 +138,14 @@ public class RaspProjectSupport {
 		System.out.println(newProject);
 		System.out.println(srcFolder);
 		srcFolder.getFullPath().append("raspConf.xml");
-
+		
+		
+		File path=new File(System.getProperty("user.home"),"/raspdevSDK/raspConf.xml");
 		IFile newxml = srcFolder.getFile("raspConf.xml");
 		if(!newxml.exists()){
 
 			try {
-				newxml.create(new FileInputStream("/home/sprawl/raspdev/src/raspConf.xml"), false, null);
+				newxml.create(new FileInputStream(path), false, null);
 			} catch (FileNotFoundException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
