@@ -23,10 +23,15 @@ public class DeviceManager extends TitleAreaDialog{
 	  private Text qemuKernelText;
 	  private Text soPathText;
 	  private Text portForWardText;
+	  private Text frameBufferWidthText;
+	  private Text frameBufferHeightText;
 	  private String qemuPath;
 	  private String qemuKernel;
 	  private String soPath;
 	  private String portForWard;
+	  private String frameBufferWidth;
+	  private String frameBufferHeight;
+	  
 	  
 	public DeviceManager(Shell parentShell) {
 	
@@ -119,6 +124,22 @@ public class DeviceManager extends TitleAreaDialog{
 	    gridData.horizontalAlignment = GridData.FILL;
 	    portForWardText = new Text(parent, SWT.BORDER);
 	    portForWardText.setLayoutData(gridData);
+	    
+	    Label label5 = new Label(parent, SWT.NONE);
+	    label5.setText("Frame buffer width");
+	    gridData = new GridData();
+	    gridData.grabExcessHorizontalSpace = true;
+	    gridData.horizontalAlignment = GridData.FILL;
+	    frameBufferWidthText = new Text(parent, SWT.BORDER);
+	    frameBufferWidthText.setLayoutData(gridData);
+	    
+	    Label label6 = new Label(parent, SWT.NONE);
+	    label6.setText("Frame buffer height");
+	    gridData = new GridData();
+	    gridData.grabExcessHorizontalSpace = true;
+	    gridData.horizontalAlignment = GridData.FILL;
+	    frameBufferHeightText = new Text(parent, SWT.BORDER);
+	    frameBufferHeightText.setLayoutData(gridData);
 	    return parent;
 	  }
 
@@ -193,6 +214,14 @@ public class DeviceManager extends TitleAreaDialog{
 		      setErrorMessage("Please maintain the port");
 		      valid = false;
 		    }
+	    if (frameBufferWidthText.getText().length() == 0) {
+		      setErrorMessage("Please maintain the frame buffer width");
+		      valid = false;
+		    }
+	    if (frameBufferHeightText.getText().length() == 0) {
+		      setErrorMessage("Please maintain the frame buffer height");
+		      valid = false;
+		    }
 	    return valid;
 	  }
 	  
@@ -207,12 +236,14 @@ public class DeviceManager extends TitleAreaDialog{
 		  ParsConf pc = new ParsConf();
 		  pc.generatePars();
 		  qemuPath = qemuPathText.getText();
-		  //pc.setQemuPath(qemuPath);
+		
 	      qemuKernel = qemuKernelText.getText();
-	      //pc.setQemuPath(qemuKernel);
+	    
 	      soPath = soPathText.getText();
-	      //pc.setQemuPath(soPath);
+	
 	      portForWard = portForWardText.getText();
+	      frameBufferWidth = frameBufferWidthText.getText();
+	      frameBufferHeight = frameBufferHeightText.getText();
 	      pc.setEmuValues(qemuPath, qemuKernel, soPath, portForWard);
 
 	  }
@@ -238,6 +269,13 @@ public class DeviceManager extends TitleAreaDialog{
 	  
 	  public String getPort() {
 		    return portForWard;
+	  }
+	  public String getWidth() {
+		    return frameBufferWidth;
+	  }
+	  
+	  public String geHeight() {
+		    return frameBufferHeight;
 	  }
 
 	
