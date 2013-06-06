@@ -49,38 +49,6 @@ public class DeviceManager extends TitleAreaDialog{
 	        IMessageProvider.INFORMATION);
 	  }
 	
-//	 public static void main(String[] args) {
-//		 
-//		 Display display = new Display();
-//
-//	        Shell shell = new Shell(display);
-//	        GridLayout layout = new GridLayout(2, false);
-//	        // set the layout of the shell
-//	        shell.setLayout(layout);
-//	        // Layout manager handle the layout
-//	        // of the widgets in the container
-//	     
-//	        Button button =  new Button(shell, SWT.PUSH);
-//	        button.setText("press");
-//			
-//	        button.addSelectionListener(new SelectionAdapter() {
-//			     @Override
-//			     public void widgetSelected(SelectionEvent e) {
-//			         // Handle the selection event
-//			         System.out.println("Called!");
-//			     }
-//			 }); 
-//	        shell.pack();
-//	        //TODO add some widgets to the Shell
-//	        shell.open();
-//	        while (!shell.isDisposed()) {
-//	            if (!display.readAndDispatch())
-//	                display.sleep();
-//	        }
-//	      
-//		  display.dispose();
-//	 }
-	
 	  @Override
 	  protected Control createDialogArea(Composite parent) {
 	    GridLayout layout = new GridLayout();
@@ -101,43 +69,30 @@ public class DeviceManager extends TitleAreaDialog{
 	    
 	    Label label2 = new Label(parent, SWT.NONE);
 	    label2.setText("Qemu kernel path");
-	    
-	    
-	    // You should not re-use GridData
-	    gridData = new GridData();
-	    gridData.grabExcessHorizontalSpace = true;
-	    gridData.horizontalAlignment = GridData.FILL;
+	  
 	    qemuKernelText = new Text(parent, SWT.BORDER);
 	    qemuKernelText.setLayoutData(gridData);
 	    
 	    Label label3 = new Label(parent, SWT.NONE);
 	    label3.setText("SO path");
-	    gridData = new GridData();
-	    gridData.grabExcessHorizontalSpace = true;
-	    gridData.horizontalAlignment = GridData.FILL;
+	  
 	    soPathText = new Text(parent, SWT.BORDER);
 	    soPathText.setLayoutData(gridData);
 	    Label label4 = new Label(parent, SWT.NONE);
 	    label4.setText("Port for redirect");
-	    gridData = new GridData();
-	    gridData.grabExcessHorizontalSpace = true;
-	    gridData.horizontalAlignment = GridData.FILL;
+	  
 	    portForWardText = new Text(parent, SWT.BORDER);
 	    portForWardText.setLayoutData(gridData);
 	    
 	    Label label5 = new Label(parent, SWT.NONE);
 	    label5.setText("Frame buffer width");
-	    gridData = new GridData();
-	    gridData.grabExcessHorizontalSpace = true;
-	    gridData.horizontalAlignment = GridData.FILL;
+	  
 	    frameBufferWidthText = new Text(parent, SWT.BORDER);
 	    frameBufferWidthText.setLayoutData(gridData);
 	    
 	    Label label6 = new Label(parent, SWT.NONE);
 	    label6.setText("Frame buffer height");
-	    gridData = new GridData();
-	    gridData.grabExcessHorizontalSpace = true;
-	    gridData.horizontalAlignment = GridData.FILL;
+	   
 	    frameBufferHeightText = new Text(parent, SWT.BORDER);
 	    frameBufferHeightText.setLayoutData(gridData);
 	    return parent;
@@ -278,6 +233,4 @@ public class DeviceManager extends TitleAreaDialog{
 		    return frameBufferHeight;
 	  }
 
-	
-  
 }
