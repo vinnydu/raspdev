@@ -1,8 +1,11 @@
 package raspdev;
 
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.InputStreamReader;
+
 import javax.xml.parsers.DocumentBuilder;
 
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -33,8 +36,13 @@ public class ParsConf {
 		// TODO Auto-generated constructor stub
 		//fXmlFile = new File("raspdev/src/raspConf.xml");
 		// Get the currently selected file from the editor
-		pro =getCurrentSelectedProject();
-		projectDirectory=pro.getLocation().toFile();
+		
+		if(getCurrentSelectedProject()!=null){
+		pro=getCurrentSelectedProject();
+		projectDirectory=pro.getLocation().toFile();}
+		else {pro=null;
+		     projectDirectory=null;
+		}
 	
 	}
 
@@ -42,10 +50,11 @@ public class ParsConf {
 	public void generatePars() {
 		
 		//String path = fXmlFile.getAbsolutePath();
-	
+	    if(projectDirectory!=null){
 		path= projectDirectory.getAbsolutePath();
-		path =path+"/src"+"/raspConf.xml";
-		System.out.println(path);
+		path =path+"/config"+"/raspConf.xml";
+		System.out.println(path);}
+	    else  path=new File(System.getProperty("user.home"),"/raspdevSDK/raspConf.xml").toString();
 		DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
 		DocumentBuilder dBuilder = null;
 
@@ -65,21 +74,6 @@ public class ParsConf {
 		doc.getDocumentElement().normalize();
 	}
 
-//	public File getfXmlFile() {
-//		return fXmlFile;
-//	}
-//	public void setQemuPath(String textContent) {
-//		doc.getElementsByTagName("qemu-path").item(0).setTextContent(textContent);
-//		
-//	}
-//	public void setKernelPath(String textContent) {
-//		doc.getElementsByTagName("qemu-kernel").item(0).setTextContent(textContent);
-//		
-//	}
-//	public void setSOPath(String textContent) {
-//		doc.getElementsByTagName("raspbian-path").item(0).setTextContent(textContent);
-//		
-//	}
 	public void setEmuValues(String qemuPath, String qemuKernel, String soPath, String portForWard)
 	{
 		XMLOutputter xmlOutput = new XMLOutputter();
@@ -105,6 +99,52 @@ public class ParsConf {
 			e.printStackTrace();
 		}
 	}
+	
+	public void setHostValues(String user,String host, String hostPath, String projectDeploy, String privateKey){
+		
+		XMLOutputter xmlOutput = new XMLOutputter();
+		SAXBuilder builder = new SAXBuilder();
+		
+		// display nice nice
+		xmlOutput.setFormat(Format.getPrettyFormat());
+		try {
+			
+			org.jdom.Document docj = (org.jdom.Document) builder.build(path);
+			Element rootNode = docj.getRootElement();
+			rootNode.getChild("user").setText(user);
+			rootNode.getChild("host").setText(host);
+			rootNode.getChild("host-path").setText(hostPath);
+			rootNode.getChild("path-project-todeploy").setText(projectDeploy);
+			rootNode.getChild("private-key").setText(privateKey);
+			xmlOutput.output(docj, new FileWriter(path));
+			
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (JDOMException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+	}
+	public void setFrameBuffer(String frameBufferWidth, String frameBufferHeight){
+		
+		 try {
+		      String line;
+		      Process p = Runtime.getRuntime().exec("");
+		      BufferedReader input = new BufferedReader(new InputStreamReader(p.getInputStream()));
+		      while ((line = input.readLine()) != null) {
+		        System.out.println(line);
+		      }
+		      input.close();
+		    }
+		    catch (Exception err) {
+		      err.printStackTrace();
+		    }
+		
+	}
+	
 	public Document getDoc() {
 		return doc;
 	}
