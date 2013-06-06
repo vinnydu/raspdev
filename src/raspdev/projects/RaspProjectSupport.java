@@ -3,12 +3,7 @@ package raspdev.projects;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.io.IOException;
-
 import java.net.URI;
-import java.net.URL;
-import java.util.Scanner;
-
 import org.eclipse.core.resources.IContainer;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IFolder;
@@ -17,9 +12,7 @@ import org.eclipse.core.resources.IProjectDescription;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.Assert;
 import org.eclipse.core.runtime.CoreException;
-import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.IProgressMonitor;
-import org.eclipse.core.runtime.Path;
 import raspdev.natures.ProjectNature;
  
 public class RaspProjectSupport {
@@ -34,6 +27,8 @@ public class RaspProjectSupport {
      * @param natureId
      * @return
      */
+	
+	private static int nProject;
     public static IProject createProject(String projectName, URI location) {
         Assert.isNotNull(projectName);
    
@@ -42,8 +37,8 @@ public class RaspProjectSupport {
         IProject project = createBaseProject(projectName, location);
         try {
             addNature(project);
- 
-            String[] paths = { "src" }; //$NON-NLS-1$ //$NON-NLS-2$
+            
+            String[] paths = { "src" ,"config"}; //$NON-NLS-1$ //$NON-NLS-2$
             addToProjectStructure(project, paths);
         } catch (CoreException e) {
             e.printStackTrace();
@@ -81,60 +76,19 @@ public class RaspProjectSupport {
                 e.printStackTrace();
             }
         }
-        FileInputStream fileStream = null;
 //////////////////////////////////////////////////////////////////////////
 
-//        ClassLoader.class.getResourceAsStream("/home/sprawl/raspdev/src/raspConf.xml");
-//        
-//        IFolder proFolder = newProject.getFolder("src");
-//        if (proFolder.exists()) {
-//           // create a new file
-//           IFile newxml = proFolder.getFile("raspConf.xml");
-//           try {
-//			fileStream = new FileInputStream(
-//			      "/home/sprawl/raspdev/src/raspConf.xml");
-//		} catch (FileNotFoundException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
-//           try {
-//			newxml.create(fileStream, false, null);
-//		} catch (CoreException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
-//           // create closes the file stream, so no worries.   
-//        }
-//
-//        IFile xmlfile = proFolder.getFile("/src/raspConf.xml");
-//        if (xmlfile.exists()) {
-//           IPath newxmlPath = new Path("raspConf.xml");
-//           try {
-//			xmlfile.copy(newxmlPath, false, null);
-//		} catch (CoreException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
-//            proFolder.getFile("raspConf.xml");
-//        }
-        IFolder newFolder = newProject.getFolder("src");
+        IFolder newFolder = newProject.getFolder("config");
         try {
 		     newFolder.create(false, true, null);
 		} catch (CoreException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-        IPath renamedPath = newFolder.getFullPath().append("raspConf.xml");
-        IFile newXml = newFolder.getFile("raspConf.xml");
-        try {
-			newXml.move(renamedPath, false, null);
-		} catch (CoreException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+
          newFolder.getFile("raspConf.xml");
 
-		IFolder srcFolder = newProject.getFolder("/src");
+		IFolder srcFolder = newProject.getFolder("/config");
 		System.out.println(newProject);
 		System.out.println(srcFolder);
 		srcFolder.getFullPath().append("raspConf.xml");
@@ -154,7 +108,38 @@ public class RaspProjectSupport {
 				e.printStackTrace();
 			}	
 
-		}   
+		}
+		//////////////////////config.txt
+		IFolder confFolder = newProject.getFolder("config");
+        try {
+		     confFolder.create(false, true, null);
+		} catch (CoreException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+         confFolder.getFile("config.txt");
+
+		IFolder cFolder = newProject.getFolder("/config");
+
+		srcFolder.getFullPath().append("config.txt");
+		
+		
+		File cpath=new File(System.getProperty("user.home"),"/raspdevSDK/config.txt");
+		IFile newtxt = cFolder.getFile("config.txt");
+		if(!newtxt.exists()){
+
+			try {
+				newtxt.create(new FileInputStream(cpath), false, null);
+			} catch (FileNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (CoreException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}	
+
+		}
     
         return newProject;
     }
@@ -196,6 +181,11 @@ public class RaspProjectSupport {
             IProgressMonitor monitor = null;
             project.setDescription(description, monitor);
         }
+    }
+    public static void setPrototype(int nProject){
+    	
+    	System.out.println("progetto"+nProject);
+    	RaspProjectSupport.nProject = nProject;
     }
  
 }
