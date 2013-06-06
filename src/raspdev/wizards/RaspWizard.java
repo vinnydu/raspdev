@@ -2,7 +2,6 @@ package raspdev.wizards;
 
 import java.net.URI;
 
-import org.eclipse.core.resources.IContainer;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IConfigurationElement;
 import org.eclipse.core.runtime.IExecutableExtension;
@@ -51,8 +50,8 @@ public class RaspWizard extends Wizard implements INewWizard , IExecutableExtens
 
 		addPage(one);
 //
-//		addPage(two);
 
+        
 		addPage(_pageOne);
 	}
 
@@ -87,6 +86,7 @@ public class RaspWizard extends Wizard implements INewWizard , IExecutableExtens
 		// TODO Auto-generated method stub
 		 _configurationElement = config;
 	}
-
+	
+	
 }
 
