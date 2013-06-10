@@ -28,5 +28,5 @@ Usage:
  *   {{{renameRVD}}}        : Renames a Raspdev Virtual Device.
  *   {{{deleteRVD}}}        : Deletes a Raspdev Virtual Device.
  *   {{{createProject}}}     : Creates a new Raspdev project.
- *   {{{updateProject}}}    : Updates a Raspdev project (must already have a RaspdevManifest.xml). [Not implemented yet.]
- *   {{{updateSDK}}}        : Updates the SDK by suggesting new platforms to install if available. [Not implemented yet.]
+ *   {{{updateProject}}}    : Updates a Raspdev project (must already have a RaspdevManifest.xml). [Not implemented yet]
+ *   {{{updateSDK}}}        : Updates the SDK by suggesting new platforms to install if available. [Not implemented yet]
