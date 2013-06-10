@@ -13,7 +13,7 @@ With a single download, the Raspdev SDK includes everything you need to begin de
  * The latest Raspdev platform
  * The latest Raspdev system image for the emulator
 
- = Instructions =
+= Instructions =
 
 Usage:
  {{{raspdev action [action options]}}}
