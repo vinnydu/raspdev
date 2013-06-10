@@ -1,0 +1,32 @@
+#labels raspdev,sdk,raspberry,development
+= Get the Raspdev SDK =
+
+The Raspdev SDK provides you the API libraries and developer tools necessary to build, test, and debug apps for Raspberry.
+
+= Details =
+
+With a single download, the Raspdev SDK includes everything you need to begin developing apps:
+
+ * Eclipse Rapdev plugin
+ * Raspdev SDK Tools
+ * Raspdev Platform-tools
+ * The latest Raspdev platform
+ * The latest Raspdev system image for the emulator
+
+ = Instructions =
+
+Usage:
+ {{{raspdev action [action options]}}}
+       
+  Valid actions are composed of a verb and an optional direct object:
+   
+ *   {{{sdk}}}                    : Displays the SDK Manager window.
+ *   {{{rvd}}}                    : Displays the RVD Manager window.
+ *   {{{listRVD}}}            : Lists existing Raspdev Virtual Devices.
+ *   {{{listTarget}}}         : Lists existing targets.
+ *   {{{createRVD}}}        : Creates a new Raspdev Virtual Device.
+ *   {{{renameRVD}}}        : Renames a Raspdev Virtual Device.
+ *   {{{deleteRVD}}}        : Deletes a Raspdev Virtual Device.
+ *   {{{createProject}}}     : Creates a new Raspdev project.
+ *   {{{updateProject}}}    : Updates a Raspdev project (must already have a RaspdevManifest.xml). [Not implemented yet.]
+ *   {{{updateSDK}}}        : Updates the SDK by suggesting new platforms to install if available. [Not implemented yet.]
