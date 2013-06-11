@@ -12,6 +12,7 @@ import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Group;
+import org.eclipse.swt.widgets.Item;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Menu;
 import org.eclipse.swt.widgets.MenuItem;
@@ -115,9 +116,9 @@ public class RaspDevSDKManager {
 	        b.setLayoutData(data);
 	        ProgressBar progressBar = new ProgressBar(composite, SWT.HORIZONTAL);
 	        GridData progressGridData = new GridData();
-	        progressGridData.heightHint = 15;
-	        progressGridData.widthHint = 100;
-	        progressGridData.horizontalAlignment = GridData.BEGINNING;
+//	        progressGridData.heightHint = 15;
+//	        progressGridData.widthHint = 100;
+	        progressGridData.horizontalAlignment = GridData.FILL;
 	        progressBar.setLayoutData(progressGridData);
 	        
 	      //  shell.pack();
@@ -143,7 +144,8 @@ public class RaspDevSDKManager {
 	 
 	 public static void treeMenu(Group group){
 
-	        final Tree tree = new Tree(group, SWT.V_SCROLL);
+	        final Tree tree = new Tree(group, SWT.CHECK | SWT.V_SCROLL);
+	        boolean checked=false,grayed = false;
 	        for (int i=0; i<5;i++) {
 	            TreeItem item = new TreeItem(tree, SWT.NONE);
 	            item.setText(String.valueOf(i));
@@ -151,9 +153,13 @@ public class RaspDevSDKManager {
 	            for (int j=0; j<3;j++) {
 	                TreeItem subItem = new TreeItem(item, SWT.NONE);
 	                subItem.setText(String.valueOf(i) + " " + String.valueOf(j));
-	            }
+	                if (subItem.getGrayed() || checked != subItem.getChecked()) {
+		                checked = grayed = true;
+		                break;
+	            }}
 	        }
 	        tree.pack();
+	        
 	        Menu menu = new Menu(tree);
 	        MenuItem menuItem = new MenuItem(menu, SWT.NONE);
 	        menuItem.setText("Print Element");
@@ -161,6 +167,7 @@ public class RaspDevSDKManager {
 	            @Override
 	            public void widgetSelected(SelectionEvent event) {
 	                System.out.println(tree.getSelection()[0].getText());
+	                tree.getSelection()[0].setChecked(true);
 	            }
 	        });
 	        tree.setMenu(menu);
