@@ -43,17 +43,18 @@ public class PageOne extends WizardPage{
 		container = new Composite(parent, SWT.NONE);
 		
 		GridLayout layout = new GridLayout(2, false);
-        // set the layout of the shell
+        // set the layout of the composite
         container.setLayout(layout);
-        GridData data = new GridData(GridData.BEGINNING, GridData.BEGINNING, false,
+        GridData data = new GridData(GridData.FILL, GridData.BEGINNING, false,
                 false, 2, 1);
         new Label (container, SWT.NONE).setText("Choose a project: ");	
-		// Travel by plane		
+		// radio button	
 		final Button planeButton = new Button(container, SWT.RADIO);
 	
+		
 		planeButton.setText("Empty");
 		planeButton.setLayoutData(data);
-		data = new GridData(GridData.FILL, GridData.BEGINNING, false,
+		data = new GridData(GridData.FILL, GridData.BEGINNING, true,
                 false, 2, 1);
 		final Button planeButton2 = new Button(container, SWT.RADIO);
 		planeButton2.setText("Daemon");
@@ -108,6 +109,7 @@ public class PageOne extends WizardPage{
 	    label1.setText("User");
 
 	    userText = new Text(group, SWT.BORDER);
+	   
 	    
 	    Label label2 = new Label(group, SWT.NONE);
 	    label2.setText("Host");
@@ -117,7 +119,7 @@ public class PageOne extends WizardPage{
 	    
 	    Label label3 = new Label(group, SWT.NONE);
 	    label3.setText("Host path");
-	 
+	    
 	    hostPathText = new Text(group, SWT.BORDER);
 	   
 	    Label label4 = new Label(group, SWT.NONE);
