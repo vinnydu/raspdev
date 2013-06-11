@@ -12,6 +12,7 @@ import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
+import org.eclipse.swt.widgets.FileDialog;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Text;
@@ -31,7 +32,7 @@ public class DeviceManager extends TitleAreaDialog{
 	  private String portForWard;
 	  private String frameBufferWidth;
 	  private String frameBufferHeight;
-	  
+	  private String result;
 	  
 	public DeviceManager(Shell parentShell) {
 	
@@ -50,10 +51,10 @@ public class DeviceManager extends TitleAreaDialog{
 	  }
 	
 	  @Override
-	  protected Control createDialogArea(Composite parent) {
+	  protected Control createDialogArea(final Composite parent) {
 	    GridLayout layout = new GridLayout();
 	    layout.numColumns = 2;
-	    // layout.horizontalAlignment = GridData.FILL;
+	
 	    parent.setLayout(layout);
 
 	    // The text fields will grow with the size of the dialog
@@ -61,43 +62,53 @@ public class DeviceManager extends TitleAreaDialog{
 	    gridData.grabExcessHorizontalSpace = true;
 	    gridData.horizontalAlignment = GridData.FILL;
 
-	    Label label1 = new Label(parent, SWT.NONE);
+	    Label label1 = new Label(parent, SWT.BEGINNING);
 	    label1.setText("Qemu path");
 
 	    qemuPathText = new Text(parent, SWT.BORDER);
 	    qemuPathText.setLayoutData(gridData);
 	    
-	    Label label2 = new Label(parent, SWT.NONE);
+	    Label label2 = new Label(parent, SWT.BEGINNING);
 	    label2.setText("Qemu kernel path");
 	  
 	    qemuKernelText = new Text(parent, SWT.BORDER);
 	    qemuKernelText.setLayoutData(gridData);
 	    
-	    Label label3 = new Label(parent, SWT.NONE);
-	    label3.setText("SO path");
+	   
 	  
-	    soPathText = new Text(parent, SWT.BORDER);
-	    soPathText.setLayoutData(gridData);
-	    Label label4 = new Label(parent, SWT.NONE);
+	    
+	    
+	    Label label4 = new Label(parent, SWT.BEGINNING);
 	    label4.setText("Port for redirect");
 	  
 	    portForWardText = new Text(parent, SWT.BORDER);
 	    portForWardText.setLayoutData(gridData);
 	    
-	    Label label5 = new Label(parent, SWT.NONE);
+	    Label label5 = new Label(parent, SWT.BEGINNING);
 	    label5.setText("Frame buffer width");
 	  
 	    frameBufferWidthText = new Text(parent, SWT.BORDER);
 	    frameBufferWidthText.setLayoutData(gridData);
 	    
-	    Label label6 = new Label(parent, SWT.NONE);
+	    Label label6 = new Label(parent, SWT.BEGINNING);
 	    label6.setText("Frame buffer height");
 	   
 	    frameBufferHeightText = new Text(parent, SWT.BORDER);
 	    frameBufferHeightText.setLayoutData(gridData);
+	    
+		   
+	    Label label3 = new Label(parent, SWT.BEGINNING);
+	    label3.setText("SO path");
+	   
+	    
+	    soPathText = new Text(parent, SWT.BORDER);
+	    soPathText.setLayoutData(gridData);
+	    createOpenButton(parent);
+	    
 	    return parent;
 	  }
 
+	  
 	  @Override
 	  protected void createButtonsForButtonBar(Composite parent) {
 	    GridData gridData = new GridData();
@@ -124,7 +135,29 @@ public class DeviceManager extends TitleAreaDialog{
 	      }
 	    });
 	  }
-
+      protected void createOpenButton(final Composite parent){
+    	  
+    	GridData gridDatap = new GridData();
+  	    gridDatap.verticalAlignment = GridData.FILL;
+  	    gridDatap.horizontalSpan = 3;
+  	    gridDatap.grabExcessHorizontalSpace = false;
+  	    gridDatap.grabExcessVerticalSpace = false;
+  	    gridDatap.horizontalAlignment = SWT.LEFT;
+  	    final Button buttonCl = new Button(parent, SWT.PUSH);
+  		   
+  	    
+  	    buttonCl.setText("Open");
+  	    buttonCl.setLayoutData(gridDatap);
+  	    buttonCl.addSelectionListener(new SelectionAdapter() {
+  		      public void widgetSelected(SelectionEvent event) {
+  		       
+  		        result= openFile(parent);
+  		        soPathText.setText(result);
+  		      }
+  		    });
+    	  
+      }
+	  
 	  protected Button createOkButton(Composite parent, int id, 
 	      String label,
 	      boolean defaultButton) {
@@ -153,30 +186,7 @@ public class DeviceManager extends TitleAreaDialog{
 
 	  private boolean isValidInput() {
 	    boolean valid = true;
-	    if (qemuPathText.getText().length() == 0) {
-	      setErrorMessage("Please maintain the Qemu path");
-	      valid = false;
-	    }
-	    if (qemuKernelText.getText().length() == 0) {
-	      setErrorMessage("Please maintain the Qemu kernel path");
-	      valid = false;
-	    }
-	    if (soPathText.getText().length() == 0) {
-		      setErrorMessage("Please maintain the SO path");
-		      valid = false;
-		    }
-	    if (portForWardText.getText().length() == 0) {
-		      setErrorMessage("Please maintain the port");
-		      valid = false;
-		    }
-	    if (frameBufferWidthText.getText().length() == 0) {
-		      setErrorMessage("Please maintain the frame buffer width");
-		      valid = false;
-		    }
-	    if (frameBufferHeightText.getText().length() == 0) {
-		      setErrorMessage("Please maintain the frame buffer height");
-		      valid = false;
-		    }
+
 	    return valid;
 	  }
 	  
@@ -200,9 +210,18 @@ public class DeviceManager extends TitleAreaDialog{
 	      frameBufferWidth = frameBufferWidthText.getText();
 	      frameBufferHeight = frameBufferHeightText.getText();
 	      pc.setEmuValues(qemuPath, qemuKernel, soPath, portForWard);
+	      pc.setFrameBuffer(frameBufferWidth, frameBufferHeight);
 
 	  }
 
+	  public String openFile(Composite parent){
+			 FileDialog dialog = new FileDialog(parent.getShell(), SWT.OPEN);
+			    dialog.setFilterExtensions(new String [] {"*.img"});
+			    dialog.setFilterPath(System.getProperty("user.home"));
+			    String result = dialog.open();
+			 return result;
+		 }
+	  
 	  @Override
 	  protected void okPressed() {
 	    saveInput();
