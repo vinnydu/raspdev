@@ -78,24 +78,23 @@ public class RaspProjectSupport {
         }
 //////////////////////////////////////////////////////////////////////////
 
-        IFolder newFolder = newProject.getFolder("config");
+        IFolder confFolder = newProject.getFolder("config");
         try {
-		     newFolder.create(false, true, null);
+		     confFolder.create(false, true, null);
 		} catch (CoreException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
-         newFolder.getFile("raspConf.xml");
+         confFolder.getFile("raspConf.xml");
 
-		IFolder srcFolder = newProject.getFolder("/config");
+	    confFolder = newProject.getFolder("/config");
 		System.out.println(newProject);
-		System.out.println(srcFolder);
-		srcFolder.getFullPath().append("raspConf.xml");
+		confFolder.getFullPath().append("raspConf.xml");
 		
 		
-		File path=new File(System.getProperty("user.home"),"/raspdevSDK/raspConf.xml");
-		IFile newxml = srcFolder.getFile("raspConf.xml");
+		File path=new File(System.getProperty("user.home"),"/raspdevConf/raspConf.xml");
+		IFile newxml = confFolder.getFile("raspConf.xml");
 		if(!newxml.exists()){
 
 			try {
@@ -110,22 +109,15 @@ public class RaspProjectSupport {
 
 		}
 		//////////////////////config.txt
-		IFolder confFolder = newProject.getFolder("config");
-        try {
-		     confFolder.create(false, true, null);
-		} catch (CoreException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
 
          confFolder.getFile("config.txt");
 
 		IFolder cFolder = newProject.getFolder("/config");
 
-		srcFolder.getFullPath().append("config.txt");
+		confFolder.getFullPath().append("config.txt");
 		
 		
-		File cpath=new File(System.getProperty("user.home"),"/raspdevSDK/config.txt");
+		File cpath=new File(System.getProperty("user.home"),"/raspdevConf/config.txt");
 		IFile newtxt = cFolder.getFile("config.txt");
 		if(!newtxt.exists()){
 
@@ -140,10 +132,48 @@ public class RaspProjectSupport {
 			}	
 
 		}
+		/////////////////////////////////////////////////
+		if(nProject == 2)
+			createDaemonProject(newProject,projectName);
     
         return newProject;
     }
  
+    private static void createDaemonProject(IProject newProject, String name){
+    	
+    	IFolder srcFolder = newProject.getFolder("src");
+        try {
+		     srcFolder.create(false, true, null);
+		} catch (CoreException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+         srcFolder.getFile("daemon.py");
+
+		srcFolder = newProject.getFolder("/src");
+		System.out.println(newProject);
+		System.out.println(srcFolder);
+		srcFolder.getFullPath().append("daemon.py");
+		
+		
+		File path=new File(System.getProperty("user.home"),"/raspdevConf/projectype/Daemon/daemon.py");
+		IFile newxml = srcFolder.getFile("daemon.py");
+		if(!newxml.exists()){
+
+			try {
+				newxml.create(new FileInputStream(path), false, null);
+			} catch (FileNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (CoreException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}	
+
+		}
+    }
+    
     private static void createFolder(IFolder folder) throws CoreException {
         IContainer parent = folder.getParent();
         if (parent instanceof IFolder) {
@@ -186,6 +216,10 @@ public class RaspProjectSupport {
     	
     	System.out.println("progetto"+nProject);
     	RaspProjectSupport.nProject = nProject;
+    }
+    public int getPrototype(){
+    	
+    	return nProject;
     }
  
 }
