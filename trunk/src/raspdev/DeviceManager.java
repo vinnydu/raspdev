@@ -98,7 +98,7 @@ public class DeviceManager extends TitleAreaDialog{
 	    
 		   
 	    Label label3 = new Label(parent, SWT.BEGINNING);
-	    label3.setText("SO path");
+	    label3.setText("Image path");
 	   
 	    
 	    soPathText = new Text(parent, SWT.BORDER);
