@@ -144,6 +144,8 @@ public class ParsConf {
 				buffer.append(text + "\n");
 				if((buffer.indexOf("=", 2*sub))!=-1){
 					count++;
+					if(count>2)
+						break;
 					sub =buffer.indexOf("=",2*sub);
 					if(count==1){
 						buffer.replace(sub+1,text.length(),frameBufferWidth);
@@ -152,6 +154,7 @@ public class ParsConf {
 					else {
 
 						buffer.replace(sub+1,(text.length()*2),frameBufferHeight);
+						buffer.append("\n");
 
 					}
 				}
