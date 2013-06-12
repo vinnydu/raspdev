@@ -1,4 +1,6 @@
+#summary Raspdev SDK with API libraries and developer tools necessary to build, test and debug apps for Raspberry.
 #labels raspdev,sdk,raspberry,development
+
 = Get the Raspdev SDK =
 
 The Raspdev SDK provides you the API libraries and developer tools necessary to build, test, and debug apps for Raspberry.
