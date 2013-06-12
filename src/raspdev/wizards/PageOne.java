@@ -98,39 +98,46 @@ public class PageOne extends WizardPage{
 		setControl(container);
 		
 	//////////////////////////////PAGE CONFIG
-		Group group = new Group(container, SWT.NONE);
+		Group group = new Group(container, SWT.FILL);
         group.setText("Xml Host Config");
 		GridData gridData = new GridData();
 	    gridData.grabExcessHorizontalSpace = true;
-	    gridData.horizontalAlignment = GridData.BEGINNING;
+	    gridData.horizontalAlignment = GridData.FILL;
+	    gridData.grabExcessHorizontalSpace=true;
 	    group.setLayoutData(gridData);
 	    group.setLayout(layout);
 	    Label label1 = new Label(group, SWT.NONE);
 	    label1.setText("User");
 
 	    userText = new Text(group, SWT.BORDER);
-	   
+	    userText.setText("pi");
+	    userText.setLayoutData(gridData);
 	    
 	    Label label2 = new Label(group, SWT.NONE);
 	    label2.setText("Host");
 	    
 
 	    hostText = new Text(group, SWT.BORDER);
-	    
+	    hostText.setText("localhost");
+	    hostText.setLayoutData(gridData);
 	    Label label3 = new Label(group, SWT.NONE);
 	    label3.setText("Host path");
 	    
 	    hostPathText = new Text(group, SWT.BORDER);
-	   
+	    hostPathText.setText("/home/pi/apps/");
+	    hostPathText.setLayoutData(gridData);
 	    Label label4 = new Label(group, SWT.NONE);
 	    label4.setText("Project path to deploy");
 	   
 	    projectPathToDeployText = new Text(group, SWT.BORDER);
-	    
+	    projectPathToDeployText.setText(System.getProperty("user.home")+"/workspace/");
+	    projectPathToDeployText.setLayoutData(gridData);
 	    Label label5 = new Label(group, SWT.NONE);
 	    label5.setText("Private key path");
 	  
 	    privateKeyText = new Text(group, SWT.BORDER);
+	    privateKeyText.setText(System.getProperty("user.home")+"/.ssh/");
+	    privateKeyText.setLayoutData(gridData);
 	    setPageComplete(false);
 	
 		  
