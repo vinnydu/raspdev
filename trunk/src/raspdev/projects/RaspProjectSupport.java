@@ -135,6 +135,8 @@ public class RaspProjectSupport {
 		/////////////////////////////////////////////////
 		if(nProject == 2)
 			createDaemonProject(newProject,projectName);
+		if(nProject == 3)
+			createCommandProject(newProject, projectName);
     
         return newProject;
     }
@@ -149,16 +151,16 @@ public class RaspProjectSupport {
 			e.printStackTrace();
 		}
 
-         srcFolder.getFile("daemon.py");
+         srcFolder.getFile("Daemon.py");
 
 		srcFolder = newProject.getFolder("/src");
 		System.out.println(newProject);
 		System.out.println(srcFolder);
-		srcFolder.getFullPath().append("daemon.py");
+		srcFolder.getFullPath().append("Daemon.py");
 		
 		
-		File path=new File(System.getProperty("user.home"),"/raspdevConf/projectype/Daemon/daemon.py");
-		IFile newxml = srcFolder.getFile("daemon.py");
+		File path=new File(System.getProperty("user.home"),"/raspdevConf/projectype/Daemon/Daemon.py");
+		IFile newxml = srcFolder.getFile("Daemon.py");
 		if(!newxml.exists()){
 
 			try {
@@ -173,7 +175,40 @@ public class RaspProjectSupport {
 
 		}
     }
-    
+    private static void createCommandProject(IProject newProject, String name){
+    	IFolder srcFolder = newProject.getFolder("src");
+        try {
+		     srcFolder.create(false, true, null);
+		} catch (CoreException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+         srcFolder.getFile("Command.py");
+
+		srcFolder = newProject.getFolder("/src");
+		System.out.println(newProject);
+		System.out.println(srcFolder);
+		srcFolder.getFullPath().append("Command.py");
+		
+		
+		File path=new File(System.getProperty("user.home"),"/raspdevConf/projectype/Command/Command.py");
+		IFile newxml = srcFolder.getFile("Command.py");
+		if(!newxml.exists()){
+
+			try {
+				newxml.create(new FileInputStream(path), false, null);
+			} catch (FileNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (CoreException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}	
+
+		}
+    	
+    }
     private static void createFolder(IFolder folder) throws CoreException {
         IContainer parent = folder.getParent();
         if (parent instanceof IFolder) {
