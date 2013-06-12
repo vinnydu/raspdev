@@ -63,15 +63,18 @@ public class DeviceManager extends TitleAreaDialog{
 	    gridData.horizontalAlignment = GridData.FILL;
 
 	    Label label1 = new Label(parent, SWT.BEGINNING);
+	    
 	    label1.setText("Qemu path");
 
 	    qemuPathText = new Text(parent, SWT.BORDER);
+	    qemuPathText.setText(System.getProperty("user.home")+"/opt/qemu/qemu-1.4.1/arm-softmmu/qemu-system-arm");
 	    qemuPathText.setLayoutData(gridData);
 	    
 	    Label label2 = new Label(parent, SWT.BEGINNING);
 	    label2.setText("Qemu kernel path");
 	  
 	    qemuKernelText = new Text(parent, SWT.BORDER);
+	    qemuKernelText.setText(System.getProperty("user.home")+"/opt/qemu/qemu-1.4.1/kernel-qemu");
 	    qemuKernelText.setLayoutData(gridData);
 	    
 	   
@@ -82,6 +85,7 @@ public class DeviceManager extends TitleAreaDialog{
 	    label4.setText("Port for redirect");
 	  
 	    portForWardText = new Text(parent, SWT.BORDER);
+	    portForWardText.setText("2222");
 	    portForWardText.setLayoutData(gridData);
 	    
 	    Label label5 = new Label(parent, SWT.BEGINNING);
@@ -102,6 +106,7 @@ public class DeviceManager extends TitleAreaDialog{
 	   
 	    
 	    soPathText = new Text(parent, SWT.BORDER);
+	    soPathText.setText(System.getProperty("user.home")+"/opt/qemu/qemu-1.4.1/2012-08-08-wheezy-armel.img");
 	    soPathText.setLayoutData(gridData);
 	    createOpenButton(parent);
 	    
