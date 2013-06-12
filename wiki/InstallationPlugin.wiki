@@ -1,5 +1,7 @@
-Scaricare il .jar del plugin,
+Scaricare il .zip del plugin.
 
-Configurare il {{{RaspConf.xml}}} per la propria macchina.
+Scompattare il plugin, posizionando raspdev e raspdevConf nella home directory.
 
-Inserire il .jar nella directory dropins di Eclipse e se que'ultimo è aperto, riavviarlo.
+Installare in Eclipse con "install new software", inserendo il path della directory raspdev (uncheck "group items by category").
+
+Configurare il {{{RaspConf.xml}}} per la propria macchina, con le rispettive GUI, in new Project-->RaspProject e OpenDeviceManager.
