@@ -25,7 +25,6 @@ import org.xml.sax.SAXException;
 
 public class ParsConf {
 
-	//private final File fXmlFile ;
 	private Document doc = null;
 	private IProject pro;
 	private File projectDirectory;
@@ -33,8 +32,7 @@ public class ParsConf {
 	private String pathConfig;
 	public ParsConf()  {
 		// TODO Auto-generated constructor stub
-		//fXmlFile = new File("raspdev/src/raspConf.xml");
-		// Get the currently selected file from the editor
+		// Get the currently selected project from the editor
 
 		if(getCurrentSelectedProject()!=null){
 			pro=getCurrentSelectedProject();
