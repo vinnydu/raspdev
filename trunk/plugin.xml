@@ -9,7 +9,7 @@
             id="raspdev.commands.category">
       </category>
       <command
-            name="Emulation"
+            name="VirtualDeviceManager"
             categoryId="raspdev.commands.category"
             id="raspdev.commands.sampleCommand">
       </command>
@@ -28,7 +28,7 @@
          point="org.eclipse.ui.handlers">
       <handler
             commandId="raspdev.commands.sampleCommand"
-            class="raspdev.handlers.ExecuteEmulation">
+            class="raspdev.handlers.ExecuteVirtual">
       </handler>
       <handler
             commandId="raspdev.commands.sampleCommand2"
@@ -47,10 +47,7 @@
          <menu
                label="RaspDev"
                id="raspdev.menus.sampleMenu">
-            <command
-                  commandId="raspdev.commands.sampleCommand"
-                  id="raspdev.menus.sampleCommand">
-            </command>
+
             <command
                   commandId="raspdev.commands.sampleCommand2"
                   id="raspdev.menus.sampleCommand2">
@@ -58,7 +55,7 @@
             <command
                   commandId="raspdev.commands.sampleCommand3"
                   id="raspdev.menus.sampleCommand3"
-                  label="Open Device Manager"
+                  label="Xml Device"
                   style="push">
             </command>
          </menu>
@@ -98,6 +95,22 @@
            <run class="raspdev.natures.ProjectNature"/> 
        </runtime> 
        <options allowLinking="false"/>
+   </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+         <menuContribution
+            allPopups="false"
+            locationURI="toolbar:org.eclipse.ui.main.toolbar?after=additions">
+         <toolbar
+               id="org.eclipse.example.commands.toolbar.changeSetOperations"
+               label="ChangeSet Operations">
+            <command
+                  commandId="raspdev.commands.sampleCommand"
+                  icon="icons/rasp.gif"
+                  style="push">
+            </command>
+            </toolbar>
+          </menuContribution>
    </extension>
   
 </plugin>
