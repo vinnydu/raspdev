@@ -46,15 +46,13 @@ public class VirtualDeviceManager {
         shell.setLayout(layout);
         Label listlabel = new Label(shell, SWT.NONE);
         listlabel.setText("List of existing virtual device");
+        
         GridData gridData2 = new GridData(SWT.FILL, 
                 SWT.FILL, true, true);
         gridData2.widthHint = SWT.DEFAULT;
         gridData2.heightHint = SWT.DEFAULT;
         gridData2.horizontalSpan=2;
         final Table table = new Table(shell,SWT.SINGLE);
-//        		TableColumn col1 =new TableColumn(table,SWT.LEFT);
-//        		col1.setText("Name");
-//        		col1.setWidth(80);
         
         		TableColumn col2 =new TableColumn(table,SWT.LEFT);
         		col2.setText("User");
@@ -67,27 +65,37 @@ public class VirtualDeviceManager {
                 col4.setWidth(80);
                 TableColumn col5 =new TableColumn(table,SWT.LEFT);
         		col5.setText("Framebuffer width");
-        		col5.setWidth(80);
+        		col5.setWidth(140);
         		TableColumn col6 =new TableColumn(table,SWT.LEFT);
         		col6.setText("Framebuffer height");
         		col6.setWidth(80);
-        		//TableItem item1 =  new TableItem(table,0);
-        		
-//        		TableItem item2 =  new TableItem(table,0);
-//        		item2.setText(new  String[]{"a","b"});
+
         		table.setHeaderVisible(true);
         		table.setLinesVisible(true);
                 table.setLayoutData(gridData2);
-        
+                
+                gridData2 = new GridData(SWT.TOP, 
+                        SWT.BEGINNING, false, false);
+                gridData2.widthHint = SWT.DEFAULT;
+                gridData2.heightHint = SWT.DEFAULT;
+                gridData2.horizontalSpan=2;
+                
+              Button b3 = new Button(shell, SWT.PUSH);
+      	      b3.setText("Start  ");
+      	      b3.setLayoutData(gridData2);
+      	      b3.addListener(SWT.Selection, new Listener() {
+      	          public void handleEvent(Event event) {
+      	        	  
+      	        	  
+      	          
+      	          }
+      	        });
+                
+                
         ///////////////////////////////////////////////////
-//          GridData gridData3 = new GridData(SWT.RIGHT, 
-//                  SWT.DEFAULT, true, true);
-//          gridData3.widthHint = SWT.DEFAULT;
-//          gridData3.heightHint = SWT.DEFAULT;
-//          gridData3.horizontalSpan=1;
-    
+                
           Button b = new Button(shell, SWT.PUSH);
-	      b.setText("Add   ");
+	      b.setText("Add    ");
 	      
 	      b.addSelectionListener(new SelectionAdapter() {
 	          @Override
@@ -105,7 +113,7 @@ public class VirtualDeviceManager {
 
 		
 	        });
-
+	     
 	      shell.open();
           while (!shell.isDisposed()) {
             if (!display.readAndDispatch())
