@@ -100,7 +100,15 @@ public class RaspDevSDKManager {
 	        // Create a right aligned button
 	        Button b = new Button(shell, SWT.PUSH);
 	        b.setText("Install packages");
-	        
+	        b.addListener(SWT.Selection, new Listener() {
+		          public void handleEvent(Event event) {
+		          
+		        	  
+		        	  
+		          }
+
+			
+		        });
 	        
 	        data = new GridData(GridData.END, GridData.BEGINNING, false,
 	                false, 2, 1);
