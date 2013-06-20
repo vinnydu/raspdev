@@ -26,9 +26,6 @@ public class RaspWizard extends Wizard implements INewWizard , IExecutableExtens
 	private WizardNewProjectCreationPage _pageOne;
 	private IConfigurationElement _configurationElement;
 	protected PageOne one;
-//	protected PageTwo two;
-
-
 
 	public RaspWizard() {
 
@@ -45,13 +42,9 @@ public class RaspWizard extends Wizard implements INewWizard , IExecutableExtens
 		_pageOne.setTitle(Messages.RaspWizard_2);
 		_pageOne.setDescription(Messages.RaspWizard_3);
 		one = new PageOne();
-//
-//		two = new PageTwo();
 
 		addPage(one);
-//
 
-        
 		addPage(_pageOne);
 	}
 
@@ -61,15 +54,15 @@ public class RaspWizard extends Wizard implements INewWizard , IExecutableExtens
 	public boolean performFinish() {
 
 		String name = _pageOne.getProjectName();
-	
-	    URI location = null;
-	    if (!_pageOne.useDefaults()) {
-	        location = _pageOne.getLocationURI();
-	        System.err.println("location: " + location.toString());
-	    } // else location == null
-	 
-	    RaspProjectSupport.createProject(name, location);
-	    BasicNewProjectResourceWizard.updatePerspective(_configurationElement);
+
+		URI location = null;
+		if (!_pageOne.useDefaults()) {
+			location = _pageOne.getLocationURI();
+			System.err.println("location: " + location.toString());
+		} // else location == null
+
+		RaspProjectSupport.createProject(name, location);
+		BasicNewProjectResourceWizard.updatePerspective(_configurationElement);
 
 		return true;
 
@@ -84,9 +77,9 @@ public class RaspWizard extends Wizard implements INewWizard , IExecutableExtens
 	@Override
 	public void setInitializationData(IConfigurationElement config, String propertyName, Object data) throws CoreException {
 		// TODO Auto-generated method stub
-		 _configurationElement = config;
+		_configurationElement = config;
 	}
-	
-	
+
+
 }
 
