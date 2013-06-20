@@ -23,6 +23,11 @@
             categoryId="raspdev.commands.category"
             id="raspdev.commands.sampleCommand3">
       </command>
+       <command
+            name="sdk"
+            categoryId="raspdev.commands.category"
+            id="raspdev.commands.sampleCommand4">
+      </command>
    </extension>
    <extension
          point="org.eclipse.ui.handlers">
@@ -37,6 +42,10 @@
       <handler
             commandId="raspdev.commands.sampleCommand3"
             class="raspdev.handlers.OpenDevice">
+      </handler>
+       <handler
+            commandId="raspdev.commands.sampleCommand4"
+            class="raspdev.handlers.ExecuteSDK">
       </handler>
    </extension>
    
@@ -107,6 +116,11 @@
             <command
                   commandId="raspdev.commands.sampleCommand"
                   icon="icons/rasp.gif"
+                  style="push">
+            </command>
+            <command
+                  commandId="raspdev.commands.sampleCommand4"
+                  icon="icons/razzy.gif"
                   style="push">
             </command>
             </toolbar>
