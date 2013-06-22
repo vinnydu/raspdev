@@ -11,6 +11,8 @@ import org.eclipse.core.resources.IProject;
 import org.w3c.dom.Document;
 import org.xml.sax.SAXException;
 
+import raspdev.wizards.PageOne;
+
 public class ParsForDevice {
 	private Document doc = null;
 	private String path;
@@ -22,7 +24,7 @@ public class ParsForDevice {
 	public void generatePars()
 	{
 		
-		path=new File(System.getProperty("user.home"),"/raspdevConf/raspConf.xml").toString();
+		path=new File(PageOne.getConfDir()+"/raspConf.xml").toString();
 		DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
 		DocumentBuilder dBuilder = null;
 
