@@ -14,6 +14,7 @@ import org.eclipse.core.runtime.Assert;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
 import raspdev.natures.ProjectNature;
+import raspdev.wizards.PageOne;
 
 public class RaspProjectSupport {
 	/**
@@ -93,7 +94,7 @@ public class RaspProjectSupport {
 		confFolder.getFullPath().append("raspConf.xml");
 
 
-		File path=new File(System.getProperty("user.home"),"/raspdevConf/raspConf.xml");
+		File path=new File(PageOne.getConfDir()+"/raspConf.xml");
 		IFile newxml = confFolder.getFile("raspConf.xml");
 		if(!newxml.exists()){
 
@@ -117,7 +118,7 @@ public class RaspProjectSupport {
 		confFolder.getFullPath().append("config.txt");
 
 
-		File cpath=new File(System.getProperty("user.home"),"/raspdevConf/config.txt");
+		File cpath=new File(PageOne.getConfDir()+"/config.txt");
 		IFile newtxt = cFolder.getFile("config.txt");
 		if(!newtxt.exists()){
 
@@ -161,8 +162,8 @@ public class RaspProjectSupport {
 		srcFolder.getFullPath().append("Daemon.py");
 
 
-		File path=new File(System.getProperty("user.home"),"/raspdevConf/projectype/Daemon/Daemon.py");
-		File path2=new File(System.getProperty("user.home"),"/raspdevConf/projectype/Daemon/MyDaemon.py");
+		File path=new File(PageOne.getConfDir()+"/projectype/Daemon/Daemon.py");
+		File path2=new File(PageOne.getConfDir()+"/projectype/Daemon/MyDaemon.py");
 		IFile newPy = srcFolder.getFile("Daemon.py");
 		IFile newPy2 = srcFolder.getFile("MyDaemon.py");
 		if(!newPy.exists() && !newPy2.exists()){
@@ -198,7 +199,7 @@ public class RaspProjectSupport {
 		srcFolder.getFullPath().append("Command.py");
 
 
-		File path=new File(System.getProperty("user.home"),"/raspdevConf/projectype/Command/Command.py");
+		File path=new File(PageOne.getConfDir()+"/projectype/Command/Command.py");
 		IFile newCommand = srcFolder.getFile("Command.py");
 		if(!newCommand.exists()){
 
@@ -234,9 +235,9 @@ public class RaspProjectSupport {
 		srcFolder.getFullPath().append("gui.py");
 
 
-		File path=new File(System.getProperty("user.home"),"/raspdevConf/projectype/GUI/gui.py");
-		File path2=new File(System.getProperty("user.home"),"/raspdevConf/projectype/GUI/main.py");
-		File path3=new File(System.getProperty("user.home"),"/raspdevConf/projectype/GUI/MainFrame.py");
+		File path=new File(PageOne.getConfDir()+"/projectype/GUI/gui.py");
+		File path2=new File(PageOne.getConfDir()+"/projectype/GUI/main.py");
+		File path3=new File(PageOne.getConfDir()+"/projectype/GUI/MainFrame.py");
 		IFile newPy = srcFolder.getFile("gui.py");
 		IFile newPy2 = srcFolder.getFile("main.py");
 		IFile newPy3 = srcFolder.getFile("MainFrame.py");
