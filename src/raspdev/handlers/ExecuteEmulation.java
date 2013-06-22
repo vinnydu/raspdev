@@ -7,6 +7,7 @@ import java.util.List;
 import org.eclipse.core.commands.AbstractHandler;
 import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.ExecutionException;
+import org.eclipse.swt.widgets.Event;
 import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.handlers.HandlerUtil;
 import org.eclipse.jface.dialogs.MessageDialog;
@@ -33,12 +34,12 @@ public class ExecuteEmulation extends AbstractHandler {
 	 * the command has been executed, so extract extract the needed information
 	 * from the application context.
 	 */
-	public Object execute(ExecutionEvent event) throws ExecutionException {
-		IWorkbenchWindow window = HandlerUtil.getActiveWorkbenchWindowChecked(event);
-		MessageDialog.openInformation(
-				window.getShell(),
-				"Raspdev",
-				"Execution Raspbian wheezy");
+	public Object execute(Event event) throws ExecutionException {
+//		IWorkbenchWindow window = HandlerUtil.getActiveWorkbenchWindowChecked(event);
+//		MessageDialog.openInformation(
+//				window.getShell(),
+//				"Raspdev",
+//				"Execution Raspbian wheezy");
 		List<String> args = new ArrayList<String>();
 
 		ParsConf pars = new ParsConf();
@@ -76,6 +77,12 @@ public class ExecuteEmulation extends AbstractHandler {
 		} 
 
 
+		return null;
+	}
+
+	@Override
+	public Object execute(ExecutionEvent arg0) throws ExecutionException {
+		// TODO Auto-generated method stub
 		return null;
 	}
 }
