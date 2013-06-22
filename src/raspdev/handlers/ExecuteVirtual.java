@@ -95,7 +95,13 @@ public class ExecuteVirtual extends AbstractHandler {
 		b3.setLayoutData(gridData2);
 		b3.addListener(SWT.Selection, new Listener() {
 			public void handleEvent(Event event) {
-
+					ExecuteEmulation ee = new ExecuteEmulation();
+					try {
+						ee.execute(event);
+					} catch (ExecutionException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
 
 
 			}
