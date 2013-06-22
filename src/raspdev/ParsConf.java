@@ -23,6 +23,8 @@ import org.eclipse.ui.PlatformUI;
 import org.w3c.dom.Document;
 import org.xml.sax.SAXException;
 
+import raspdev.wizards.PageOne;
+
 public class ParsConf {
 
 	private Document doc = null;
@@ -52,7 +54,7 @@ public class ParsConf {
 			pathConfig = pathConfig+"/config"+"/config.txt";
 			path =path+"/config"+"/raspConf.xml";
 			System.out.println(path);}
-		else  path=new File(System.getProperty("user.home"),"/raspdevConf/raspConf.xml").toString();
+		else  path=new File(PageOne.getConfDir()+"/raspConf.xml").toString();
 		DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
 		DocumentBuilder dBuilder = null;
 
