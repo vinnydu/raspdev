@@ -2,11 +2,15 @@ package raspdev.wizards;
 
 import org.eclipse.jface.wizard.WizardPage;
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.events.SelectionAdapter;
+import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
+import org.eclipse.swt.widgets.DirectoryDialog;
 import org.eclipse.swt.widgets.Event;
+import org.eclipse.swt.widgets.FileDialog;
 import org.eclipse.swt.widgets.Group;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Listener;
@@ -23,12 +27,13 @@ public class PageOne extends WizardPage{
 	private Text hostPathText;
 	private Text projectPathToDeployText;
 	private Text privateKeyText;
+	private static Text confText;
 	private String user;
 	private String host;
 	private String hostPath;
 	private String projectPathToDeploy;
 	private String privateKey;
-
+	private String selectedDir;
 	public PageOne() {
 		// TODO Auto-generated constructor stub
 		super("Project Type");
@@ -138,12 +143,48 @@ public class PageOne extends WizardPage{
 		privateKeyText = new Text(group, SWT.BORDER);
 		privateKeyText.setText(System.getProperty("user.home")+"/.ssh/id_raspberry_rsa");
 		privateKeyText.setLayoutData(gridData);
+		 Label labelconf = new Label(group,SWT.NONE);
+		 labelconf.setText("Configuration directory");
+		   
+		    
+		    confText = new Text(group, SWT.BORDER);
+		    confText.setLayoutData(gridData);
+		    createOpenButton(group);
 		setPageComplete(false);
 
 
 	}
 
-
+	 protected void createOpenButton(final Composite parent){
+   	  
+	    	GridData gridDatap = new GridData();
+	  	    gridDatap.verticalAlignment = GridData.FILL;
+	  	    gridDatap.horizontalSpan = 3;
+	  	    gridDatap.grabExcessHorizontalSpace = false;
+	  	    gridDatap.grabExcessVerticalSpace = false;
+	  	    gridDatap.horizontalAlignment = SWT.LEFT;
+	  	    final Button buttonCl = new Button(parent, SWT.PUSH);
+	  		   
+	  	    
+	  	    buttonCl.setText("Open");
+	  	    buttonCl.setLayoutData(gridDatap);
+	  	    buttonCl.addListener(SWT.Selection, new Listener() {
+	  	      public void handleEvent(Event event) {
+	  	        DirectoryDialog directoryDialog = new DirectoryDialog(parent.getShell());
+	  	        
+	  	        directoryDialog.setFilterPath(selectedDir);
+	  	        
+	  	        String dir = directoryDialog.open();
+	  	        if(dir != null) {
+	  	          confText.setText(dir);
+	  	          selectedDir = dir;
+	  	        }
+	  	      }
+	  	    });
+	  	    
+	    	  
+	      }
+	
 	@Override
 	public boolean isPageComplete() {
 		// TODO Auto-generated method stub
@@ -164,6 +205,11 @@ public class PageOne extends WizardPage{
 		privateKey = privateKeyText.getText();
 		pc.setHostValues(user, host, hostPath, projectPathToDeploy, privateKey);
 
+	}
+	public static String getConfDir()
+	{
+		
+		return confText.getText();
 	}
 
 }
