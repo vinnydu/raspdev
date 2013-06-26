@@ -22,6 +22,8 @@ import org.eclipse.swt.widgets.TableItem;
 import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.handlers.HandlerUtil;
 import org.w3c.dom.Document;
+
+import raspdev.ParsConf;
 import raspdev.ParsForDevice;
 
 /**
@@ -135,7 +137,9 @@ public class ExecuteVirtual extends AbstractHandler {
 		return null;
 	}
 	public static void insertValue(Table table){
-		ParsForDevice pars = new ParsForDevice() ;
+//		ParsForDevice pars = new ParsForDevice() ;
+//		pars.generatePars();
+		ParsConf pars = new ParsConf();
 		pars.generatePars();
 		Document doc = pars.getDoc();
 		String user = doc.getElementsByTagName("user").item(0).getTextContent();
