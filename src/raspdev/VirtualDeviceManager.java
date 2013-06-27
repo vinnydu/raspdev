@@ -100,7 +100,7 @@ public class VirtualDeviceManager {
 	      b.addSelectionListener(new SelectionAdapter() {
 	          @Override
 	          public void widgetSelected(SelectionEvent e) {
-	        	  insertValue(table);
+//	        	  insertValue(table);
 	          }
 	      });
 	
@@ -122,14 +122,14 @@ public class VirtualDeviceManager {
           display.dispose();
 	}
 	public static void insertValue(Table table){
-		ParsForDevice pars = new ParsForDevice() ;
-  		pars.generatePars();
-  		Document doc = pars.getDoc();
-  		String user = doc.getElementsByTagName("user").item(0).getTextContent();
-		String host = doc.getElementsByTagName("host").item(0).getTextContent();
-		String port = doc.getElementsByTagName("port").item(0).getTextContent();
-          TableItem item = new TableItem(table, SWT.NONE);
-          item.setText(new  String[]{user,host,port});
+//		ParsForDevice pars = new ParsForDevice() ;
+//  		pars.generatePars();
+//  		Document doc = pars.getDoc();
+//  		String user = doc.getElementsByTagName("user").item(0).getTextContent();
+//		String host = doc.getElementsByTagName("host").item(0).getTextContent();
+//		String port = doc.getElementsByTagName("port").item(0).getTextContent();
+//          TableItem item = new TableItem(table, SWT.NONE);
+//          item.setText(new  String[]{user,host,port});
 		
 	}
 	 public static void center(Shell shell) {
