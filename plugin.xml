@@ -28,6 +28,11 @@
             categoryId="raspdev.commands.category"
             id="raspdev.commands.sampleCommand4">
       </command>
+       <command
+            name="RaspDevConf"
+            categoryId="raspdev.commands.category"
+            id="raspdev.commands.sampleCommand5">
+      </command>
    </extension>
    <extension
          point="org.eclipse.ui.handlers">
@@ -46,6 +51,10 @@
        <handler
             commandId="raspdev.commands.sampleCommand4"
             class="raspdev.handlers.ExecuteSDK">
+      </handler>
+      <handler
+            commandId="raspdev.commands.sampleCommand5"
+            class="raspdev.handlers.ExecuteRaspConf">
       </handler>
    </extension>
    
@@ -66,6 +75,10 @@
                   id="raspdev.menus.sampleCommand3"
                   label="Xml Device"
                   style="push">
+            </command>
+             <command
+                  commandId="raspdev.commands.sampleCommand5"
+                  id="raspdev.menus.sampleCommand5">
             </command>
          </menu>
       </menuContribution>
