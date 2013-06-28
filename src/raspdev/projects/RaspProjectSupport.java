@@ -13,8 +13,8 @@ import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.Assert;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
+import raspdev.ParsConf;
 import raspdev.natures.ProjectNature;
-import raspdev.wizards.PageOne;
 
 public class RaspProjectSupport {
 	/**
@@ -94,7 +94,7 @@ public class RaspProjectSupport {
 		confFolder.getFullPath().append("raspConf.xml");
 
 
-		File path=new File(PageOne.getConfDir()+"/raspConf.xml");
+		File path=new File(ParsConf.getConfig()+"/raspConf.xml");
 		IFile newxml = confFolder.getFile("raspConf.xml");
 		if(!newxml.exists()){
 
@@ -118,12 +118,35 @@ public class RaspProjectSupport {
 		confFolder.getFullPath().append("config.txt");
 
 
-		File cpath=new File(PageOne.getConfDir()+"/config.txt");
+		File cpath=new File(ParsConf.getConfig()+"/config.txt");
 		IFile newtxt = cFolder.getFile("config.txt");
 		if(!newtxt.exists()){
 
 			try {
 				newtxt.create(new FileInputStream(cpath), false, null);
+			} catch (FileNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (CoreException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}	
+
+		}
+		////////////////////////////RASPMANIFEST
+		confFolder.getFile("raspManifest.xml");
+
+		IFolder mFolder = newProject.getFolder("/config");
+
+		confFolder.getFullPath().append("raspManifest.xml");
+
+
+		File mpath=new File(ParsConf.getConfig()+"/raspManifest.xml");
+		IFile newManifest = mFolder.getFile("raspManifest.xml");
+		if(!newManifest.exists()){
+
+			try {
+				newManifest.create(new FileInputStream(mpath), false, null);
 			} catch (FileNotFoundException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -162,8 +185,8 @@ public class RaspProjectSupport {
 		srcFolder.getFullPath().append("Daemon.py");
 
 
-		File path=new File(PageOne.getConfDir()+"/projectype/Daemon/Daemon.py");
-		File path2=new File(PageOne.getConfDir()+"/projectype/Daemon/MyDaemon.py");
+		File path=new File(ParsConf.getConfig()+"/projectype/Daemon/Daemon.py");
+		File path2=new File(ParsConf.getConfig()+"/projectype/Daemon/MyDaemon.py");
 		IFile newPy = srcFolder.getFile("Daemon.py");
 		IFile newPy2 = srcFolder.getFile("MyDaemon.py");
 		if(!newPy.exists() && !newPy2.exists()){
@@ -199,7 +222,7 @@ public class RaspProjectSupport {
 		srcFolder.getFullPath().append("Command.py");
 
 
-		File path=new File(PageOne.getConfDir()+"/projectype/Command/Command.py");
+		File path=new File(ParsConf.getConfig()+"/projectype/Command/Command.py");
 		IFile newCommand = srcFolder.getFile("Command.py");
 		if(!newCommand.exists()){
 
@@ -235,9 +258,9 @@ public class RaspProjectSupport {
 		srcFolder.getFullPath().append("gui.py");
 
 
-		File path=new File(PageOne.getConfDir()+"/projectype/GUI/gui.py");
-		File path2=new File(PageOne.getConfDir()+"/projectype/GUI/main.py");
-		File path3=new File(PageOne.getConfDir()+"/projectype/GUI/MainFrame.py");
+		File path=new File(ParsConf.getConfig()+"/projectype/GUI/gui.py");
+		File path2=new File(ParsConf.getConfig()+"/projectype/GUI/main.py");
+		File path3=new File(ParsConf.getConfig()+"/projectype/GUI/MainFrame.py");
 		IFile newPy = srcFolder.getFile("gui.py");
 		IFile newPy2 = srcFolder.getFile("main.py");
 		IFile newPy3 = srcFolder.getFile("MainFrame.py");
