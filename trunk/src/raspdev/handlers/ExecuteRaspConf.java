@@ -4,6 +4,8 @@ import org.eclipse.core.commands.AbstractHandler;
 import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.events.SelectionAdapter;
+import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.graphics.Point;
 import org.eclipse.swt.graphics.Rectangle;
 import org.eclipse.swt.layout.GridData;
@@ -41,11 +43,10 @@ public class ExecuteRaspConf extends AbstractHandler{
 		GridLayout layout = new GridLayout(2, false);
 		shell.setLayout(layout);
 		GridData gridData = new GridData();
-		gridData.grabExcessHorizontalSpace = true;
 		gridData.horizontalAlignment = GridData.FILL;
 		gridData.grabExcessHorizontalSpace=true;
 		Label labelconf = new Label(shell,SWT.NONE);
-		 labelconf.setText("Configuration directory");
+		labelconf.setText("Configuration directory");
 		   
 		    
 		    confText = new Text(shell, SWT.BORDER);
@@ -81,18 +82,20 @@ public class ExecuteRaspConf extends AbstractHandler{
 	  	        }
 	  	      }
 	  	    });
-	  	  final Button buttonok= new Button(parent, SWT.PUSH);
+	  	  Button buttonok= new Button(parent, SWT.PUSH);
  		   
 	  	    
 	  	    buttonok.setText("Ok");
 	  	    buttonok.setLayoutData(gridDatap);
-	  	    buttonok.addListener(SWT.PUSH, new Listener() {
-				public void handleEvent(Event event) {
-						ParsConf.setConfig(confText.getText());
-						shell.close();
-                        
+	  	 
+			buttonok.addSelectionListener(new SelectionAdapter() {
+				@Override
+				public void widgetSelected(SelectionEvent e) {
+					ParsConf.setConfig(confText.getText());
+					shell.close();
 				}
 			});
+	  	 
 	  	    
 	    	  
 	      }
