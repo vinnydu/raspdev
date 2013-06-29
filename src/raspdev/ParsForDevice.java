@@ -2,16 +2,12 @@ package raspdev;
 
 import java.io.File;
 import java.io.IOException;
-
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
-
-import org.eclipse.core.resources.IProject;
 import org.w3c.dom.Document;
 import org.xml.sax.SAXException;
 
-import raspdev.wizards.PageOne;
 
 public class ParsForDevice {
 	private Document doc = null;
@@ -24,7 +20,7 @@ public class ParsForDevice {
 	public void generatePars()
 	{
 		
-		path=new File(PageOne.getConfDir()+"/raspConf.xml").toString();
+		path=new File(ParsConf.getConfig()+"/raspConf.xml").toString();
 		DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
 		DocumentBuilder dBuilder = null;
 

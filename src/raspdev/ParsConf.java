@@ -23,14 +23,13 @@ import org.eclipse.ui.PlatformUI;
 import org.w3c.dom.Document;
 import org.xml.sax.SAXException;
 
-import raspdev.wizards.PageOne;
-
 public class ParsConf {
 
 	private Document doc = null;
 	private IProject pro;
 	private File projectDirectory;
 	private String path;
+	private static String pathForConf;
 	private String pathConfig;
 	public ParsConf()  {
 		// TODO Auto-generated constructor stub
@@ -54,7 +53,9 @@ public class ParsConf {
 			pathConfig = pathConfig+"/config"+"/config.txt";
 			path =path+"/config"+"/raspConf.xml";
 			System.out.println(path);}
-		else  path=new File(PageOne.getConfDir()+"/raspConf.xml").toString();
+		else {
+			path=new File(pathForConf+"/raspConf.xml").toString();
+		}
 		DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
 		DocumentBuilder dBuilder = null;
 
@@ -154,7 +155,7 @@ public class ParsConf {
 					else {
 
 						buffer.replace(sub+1,(text.length()*2),frameBufferHeight);
-						buffer.append("\n");
+						//buffer.append("\n");
 
 					}
 				}
@@ -177,7 +178,14 @@ public class ParsConf {
 	}
 
 
-
+    public static String getConfig() {
+    	
+    	return pathForConf;
+    }
+ public static void setConfig(String pathForString) {
+    	
+    	pathForConf=pathForString;
+    }
 	public Document getDoc() {
 		return doc;
 	}
