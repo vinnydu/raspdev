@@ -24,7 +24,6 @@ import org.eclipse.ui.handlers.HandlerUtil;
 import org.w3c.dom.Document;
 
 import raspdev.ParsConf;
-import raspdev.ParsForDevice;
 
 /**
  * Our sample handler extends AbstractHandler, an IHandler base class.
