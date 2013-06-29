@@ -24,14 +24,10 @@ public class DeviceManager extends TitleAreaDialog{
 	  private Text qemuKernelText;
 	  private Text soPathText;
 	  private Text portForWardText;
-	  private Text frameBufferWidthText;
-	  private Text frameBufferHeightText;
 	  private String qemuPath;
 	  private String qemuKernel;
 	  private String soPath;
 	  private String portForWard;
-	  private String frameBufferWidth;
-	  private String frameBufferHeight;
 	  private String result;
 	  
 	public DeviceManager(Shell parentShell) {
@@ -76,10 +72,7 @@ public class DeviceManager extends TitleAreaDialog{
 	    qemuKernelText = new Text(parent, SWT.BORDER);
 	    qemuKernelText.setText(System.getProperty("user.home")+"/opt/qemu/qemu-1.4.1/kernel-qemu");
 	    qemuKernelText.setLayoutData(gridData);
-	    
-	   
-	  
-	    
+
 	    
 	    Label label4 = new Label(parent, SWT.BEGINNING);
 	    label4.setText("Port for redirect");
@@ -88,19 +81,7 @@ public class DeviceManager extends TitleAreaDialog{
 	    portForWardText.setText("2222");
 	    portForWardText.setLayoutData(gridData);
 	    
-	    Label label5 = new Label(parent, SWT.BEGINNING);
-	    label5.setText("Frame buffer width");
-	  
-	    frameBufferWidthText = new Text(parent, SWT.BORDER);
-	    frameBufferWidthText.setLayoutData(gridData);
-	    
-	    Label label6 = new Label(parent, SWT.BEGINNING);
-	    label6.setText("Frame buffer height");
 	   
-	    frameBufferHeightText = new Text(parent, SWT.BORDER);
-	    frameBufferHeightText.setLayoutData(gridData);
-	    
-		   
 	    Label label3 = new Label(parent, SWT.BEGINNING);
 	    label3.setText("Image path");
 	   
@@ -212,10 +193,9 @@ public class DeviceManager extends TitleAreaDialog{
 	      soPath = soPathText.getText();
 	
 	      portForWard = portForWardText.getText();
-	      frameBufferWidth = frameBufferWidthText.getText();
-	      frameBufferHeight = frameBufferHeightText.getText();
+	      
 	      pc.setEmuValues(qemuPath, qemuKernel, soPath, portForWard);
-	      pc.setFrameBuffer(frameBufferWidth, frameBufferHeight);
+	     
 
 	  }
 
@@ -249,12 +229,6 @@ public class DeviceManager extends TitleAreaDialog{
 	  public String getPort() {
 		    return portForWard;
 	  }
-	  public String getWidth() {
-		    return frameBufferWidth;
-	  }
-	  
-	  public String geHeight() {
-		    return frameBufferHeight;
-	  }
+	 
 
 }
