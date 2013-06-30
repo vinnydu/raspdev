@@ -136,7 +136,7 @@ public class PageOne extends WizardPage{
 		label5.setText("Private key path");
 
 		privateKeyText = new Text(group, SWT.BORDER);
-		privateKeyText.setText(System.getProperty("user.home")+"/.ssh/id_raspberry_rsa");
+		privateKeyText.setText(System.getProperty("user.home")+"/eclipse/plugins/Raspdev_1.5.0/raspdevConf/id_raspberry_rsa");
 		privateKeyText.setLayoutData(gridData);
 		 
 		setPageComplete(false);
