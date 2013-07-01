@@ -1,5 +1,7 @@
 package raspdev.wizards;
 
+import java.io.File;
+
 import org.eclipse.jface.wizard.WizardPage;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.layout.GridData;
@@ -130,13 +132,13 @@ public class PageOne extends WizardPage{
 		label4.setText("Project path to deploy");
 
 		projectPathToDeployText = new Text(group, SWT.BORDER);
-		projectPathToDeployText.setText(System.getProperty("user.home")+"/workspace/");
+		projectPathToDeployText.setText(System.getProperty("user.home")+File.separatorChar+"workspace"+File.separatorChar);
 		projectPathToDeployText.setLayoutData(gridData);
 		Label label5 = new Label(group, SWT.NONE);
 		label5.setText("Private key path");
 
 		privateKeyText = new Text(group, SWT.BORDER);
-		privateKeyText.setText(System.getProperty("user.home")+"/eclipse/plugins/Raspdev_1.5.0/raspdevConf/id_raspberry_rsa");
+		privateKeyText.setText(System.getProperty("user.home")+File.separatorChar+"raspdevSDK"+File.separatorChar+"id_raspberry_rsa");
 		privateKeyText.setLayoutData(gridData);
 		 
 		setPageComplete(false);
