@@ -18,20 +18,20 @@
             categoryId="raspdev.commands.category"
             id="raspdev.commands.sampleCommand2">
       </command>
-      <command
-            name="Device"
-            categoryId="raspdev.commands.category"
-            id="raspdev.commands.sampleCommand3">
-      </command>
        <command
             name="sdk"
             categoryId="raspdev.commands.category"
             id="raspdev.commands.sampleCommand4">
       </command>
        <command
-            name="RaspDevConf"
+            name="Select RaspdevSDK"
             categoryId="raspdev.commands.category"
             id="raspdev.commands.sampleCommand5">
+      </command>
+       <command
+            name="ModifyConfig"
+            categoryId="raspdev.commands.category"
+            id="raspdev.commands.sampleCommand6">
       </command>
    </extension>
    <extension
@@ -44,10 +44,6 @@
             commandId="raspdev.commands.sampleCommand2"
             class="raspdev.handlers.ExecuteDeploy">
       </handler>
-      <handler
-            commandId="raspdev.commands.sampleCommand3"
-            class="raspdev.handlers.OpenDevice">
-      </handler>
        <handler
             commandId="raspdev.commands.sampleCommand4"
             class="raspdev.handlers.ExecuteSDK">
@@ -55,6 +51,10 @@
       <handler
             commandId="raspdev.commands.sampleCommand5"
             class="raspdev.handlers.ExecuteRaspConf">
+      </handler>
+      <handler
+            commandId="raspdev.commands.sampleCommand6"
+            class="raspdev.handlers.ModifyConfig">
       </handler>
    </extension>
    
@@ -70,15 +70,15 @@
                   commandId="raspdev.commands.sampleCommand2"
                   id="raspdev.menus.sampleCommand2">
             </command>
-            <command
-                  commandId="raspdev.commands.sampleCommand3"
-                  id="raspdev.menus.sampleCommand3"
-                  label="Xml Device"
-                  style="push">
-            </command>
              <command
                   commandId="raspdev.commands.sampleCommand5"
                   id="raspdev.menus.sampleCommand5">
+            </command>
+             <command
+                  commandId="raspdev.commands.sampleCommand6"
+                  id="raspdev.menus.sampleCommand6"
+                  label="Modify Configtxt"
+                  style="push">
             </command>
          </menu>
       </menuContribution>
