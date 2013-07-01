@@ -18,7 +18,7 @@ public class RVDStarter {
 		if (args.length == 3 && (args[1].equals("-i") || args[1].equals("--id"))) {
 			try {
 				Class.forName("org.sqlite.JDBC");
-			    Connection conn = DriverManager.getConnection("jdbc:sqlite:"+ParsConf.getConfig()+"/tools/virtual_devices.db"); 
+			    Connection conn = DriverManager.getConnection("jdbc:sqlite:"+ParsConf.getConfig()+File.separatorChar+"tools"+File.separatorChar+"virtual_devices.db"); 
 			    Statement stat = conn.createStatement();
 				
 			    ResultSet rs = stat.executeQuery("SELECT * FROM devices WHERE id = '" + args[2] + "'"); 

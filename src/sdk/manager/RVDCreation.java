@@ -30,7 +30,7 @@ public class RVDCreation {
 			
 		    try {
 				Class.forName("org.sqlite.JDBC");
-			    Connection conn = DriverManager.getConnection("jdbc:sqlite:"+ParsConf.getConfig()+"/tools/virtual_devices.db"); 
+			    Connection conn = DriverManager.getConnection("jdbc:sqlite:"+ParsConf.getConfig()+File.separatorChar+"tools"+File.separatorChar+"virtual_devices.db"); 
 			    Statement stat = conn.createStatement(); 
 			    stat.executeUpdate("CREATE TABLE IF NOT EXISTS devices (id UNIQUE NOT NULL, name NOT NULL, type, resolution, path, target, sdcard) ");
 			    
@@ -109,7 +109,7 @@ public class RVDCreation {
 			    	
 			    	try {
 			    		Class.forName("org.sqlite.JDBC");
-			    		Connection conn = DriverManager.getConnection("jdbc:sqlite:"+ParsConf.getConfig()+"/tools/virtual_devices.db"); 
+			    		Connection conn = DriverManager.getConnection("jdbc:sqlite:"+ParsConf.getConfig()+File.separatorChar+"tools"+File.separatorChar+"virtual_devices.db"); 
 			    		Statement stat = conn.createStatement();
 			    		ResultSet rs = stat.executeQuery("SELECT * FROM targets WHERE id = '" + value + "'"); 
 					    rs.next();
