@@ -34,7 +34,7 @@ public class ParsConf {
 	public ParsConf()  {
 		// TODO Auto-generated constructor stub
 		// Get the currently selected project from the editor
-
+        
 		if(getCurrentSelectedProject()!=null){
 			pro=getCurrentSelectedProject();
 			projectDirectory=pro.getLocation().toFile();}
@@ -129,7 +129,7 @@ public class ParsConf {
 
 
 	}
-	public void setFrameBuffer(String frameBufferWidth, String frameBufferHeight){
+	public void setFrameBuffer(String frameBufferWidth, String frameBufferHeight,int countxt){
 
 		File f=new File(pathConfig);
 
@@ -145,17 +145,18 @@ public class ParsConf {
 				buffer.append(text + "\n");
 				if((buffer.indexOf("=", 2*sub))!=-1){
 					count++;
+					
 					if(count>2)
 						break;
 					sub =buffer.indexOf("=",2*sub);
 					if(count==1){
 						buffer.replace(sub+1,text.length(),frameBufferWidth);
-
 					}
 					else {
 
 						buffer.replace(sub+1,(text.length()*2),frameBufferHeight);
-						//buffer.append("\n");
+						if(countxt==1)
+						buffer.append("\n");
 
 					}
 				}
