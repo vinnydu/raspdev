@@ -25,10 +25,12 @@ import raspdev.ParsConf;
 
 public class ExecuteRaspConf extends AbstractHandler{
 	private static Text confText;
+	private static String bufferText;
 	private String selectedDir;
     Shell shell;
 	public ExecuteRaspConf() {
 		// TODO Auto-generated constructor stub
+		bufferText = "";
 	}
 
 	@Override
@@ -37,7 +39,7 @@ public class ExecuteRaspConf extends AbstractHandler{
 		IWorkbenchWindow window = HandlerUtil.getActiveWorkbenchWindowChecked(event);
 		//Display display = new Display();
 	    shell = new Shell(window.getShell());
-		shell.setText("Select directory raspdevConf");
+		shell.setText("Select SDK directory");
 		shell.setSize(600, 130);
 		center(shell);
 		GridLayout layout = new GridLayout(2, false);
@@ -46,10 +48,11 @@ public class ExecuteRaspConf extends AbstractHandler{
 		gridData.horizontalAlignment = GridData.FILL;
 		gridData.grabExcessHorizontalSpace=true;
 		Label labelconf = new Label(shell,SWT.NONE);
-		labelconf.setText("Configuration directory");
-		   
+		labelconf.setText("SDK directory path");
+		
 		    
 		    confText = new Text(shell, SWT.BORDER);
+		    confText.setText(bufferText);
 		    confText.setLayoutData(gridData);
 		    createOpenButton(shell);
 		    shell.open();
@@ -78,6 +81,7 @@ public class ExecuteRaspConf extends AbstractHandler{
 	  	        String dir = directoryDialog.open();
 	  	        if(dir != null) {
 	  	          confText.setText(dir);
+	  	          bufferText=dir;
 	  	          selectedDir = dir;
 	  	        }
 	  	      }
