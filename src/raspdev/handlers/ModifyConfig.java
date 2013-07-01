@@ -25,6 +25,7 @@ public class ModifyConfig extends AbstractHandler{
 	private Text frameBufferHeightText;
 	private String frameBufferWidth;
 	private String frameBufferHeight;
+    private static int countxt;
 	
 	public ModifyConfig() {
 		// TODO Auto-generated constructor stub
@@ -80,9 +81,10 @@ public class ModifyConfig extends AbstractHandler{
 	 private void saveInput() {
 		 ParsConf pc = new ParsConf();
 		 pc.generatePars();
+		 countxt++;
 		 frameBufferWidth = frameBufferWidthText.getText();
 	     frameBufferHeight = frameBufferHeightText.getText();
-	     pc.setFrameBuffer(frameBufferWidth, frameBufferHeight);
+	     pc.setFrameBuffer(frameBufferWidth, frameBufferHeight,countxt);
 		 
 	 }
 	public static void center(Shell shell) {
