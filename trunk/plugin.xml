@@ -18,6 +18,11 @@
             categoryId="raspdev.commands.category"
             id="raspdev.commands.sampleCommand2">
       </command>
+      <command
+            name="Create Target"
+            categoryId="raspdev.commands.category"
+            id="raspdev.commands.sampleCommand3">
+      </command>
        <command
             name="sdk"
             categoryId="raspdev.commands.category"
@@ -45,6 +50,10 @@
             class="raspdev.handlers.ExecuteDeploy">
       </handler>
        <handler
+            commandId="raspdev.commands.sampleCommand3"
+            class="raspdev.handlers.CreateTarget">
+      </handler>
+       <handler
             commandId="raspdev.commands.sampleCommand4"
             class="raspdev.handlers.ExecuteSDK">
       </handler>
@@ -69,6 +78,10 @@
             <command
                   commandId="raspdev.commands.sampleCommand2"
                   id="raspdev.menus.sampleCommand2">
+            </command>
+            <command
+                  commandId="raspdev.commands.sampleCommand3"
+                  id="raspdev.menus.sampleCommand3">
             </command>
              <command
                   commandId="raspdev.commands.sampleCommand5"
