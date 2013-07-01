@@ -89,12 +89,12 @@ public class RaspProjectSupport {
 
 		confFolder.getFile("raspConf.xml");
 
-		confFolder = newProject.getFolder("/config");
+		confFolder = newProject.getFolder(File.separatorChar+"config");
 		System.out.println(newProject);
 		confFolder.getFullPath().append("raspConf.xml");
 
 
-		File path=new File(ParsConf.getConfig()+"/raspConf.xml");
+		File path=new File(ParsConf.getConfig()+File.separatorChar+"raspConf.xml");
 		IFile newxml = confFolder.getFile("raspConf.xml");
 		if(!newxml.exists()){
 
@@ -113,12 +113,12 @@ public class RaspProjectSupport {
 
 		confFolder.getFile("config.txt");
 
-		IFolder cFolder = newProject.getFolder("/config");
+		IFolder cFolder = newProject.getFolder(File.separatorChar+"config");
 
 		confFolder.getFullPath().append("config.txt");
 
 
-		File cpath=new File(ParsConf.getConfig()+"/config.txt");
+		File cpath=new File(ParsConf.getConfig()+File.separatorChar+"config.txt");
 		IFile newtxt = cFolder.getFile("config.txt");
 		if(!newtxt.exists()){
 
@@ -136,12 +136,12 @@ public class RaspProjectSupport {
 		////////////////////////////RASPMANIFEST
 		confFolder.getFile("raspManifest.xml");
 
-		IFolder mFolder = newProject.getFolder("/config");
+		IFolder mFolder = newProject.getFolder(File.separatorChar+"config");
 
 		confFolder.getFullPath().append("raspManifest.xml");
 
 
-		File mpath=new File(ParsConf.getConfig()+"/raspManifest.xml");
+		File mpath=new File(ParsConf.getConfig()+File.separatorChar+"raspManifest.xml");
 		IFile newManifest = mFolder.getFile("raspManifest.xml");
 		if(!newManifest.exists()){
 
@@ -179,14 +179,14 @@ public class RaspProjectSupport {
 
 		srcFolder.getFile("Daemon.py");
 
-		srcFolder = newProject.getFolder("/src");
+		srcFolder = newProject.getFolder(File.separatorChar+"src");
 		System.out.println(newProject);
 		System.out.println(srcFolder);
 		srcFolder.getFullPath().append("Daemon.py");
 
 
-		File path=new File(ParsConf.getConfig()+"/projectype/Daemon/Daemon.py");
-		File path2=new File(ParsConf.getConfig()+"/projectype/Daemon/MyDaemon.py");
+		File path=new File(ParsConf.getConfig()+File.separatorChar+"projectype"+File.separatorChar+"daemon"+File.separatorChar+"Daemon.py");
+		File path2=new File(ParsConf.getConfig()+File.separatorChar+"projectype"+File.separatorChar+"daemon"+File.separatorChar+"MyDaemon.py");
 		IFile newPy = srcFolder.getFile("Daemon.py");
 		IFile newPy2 = srcFolder.getFile("MyDaemon.py");
 		if(!newPy.exists() && !newPy2.exists()){
@@ -216,13 +216,13 @@ public class RaspProjectSupport {
 
 		srcFolder.getFile("Command.py");
 
-		srcFolder = newProject.getFolder("/src");
+		srcFolder = newProject.getFolder(File.separatorChar+"src");
 		System.out.println(newProject);
 		System.out.println(srcFolder);
 		srcFolder.getFullPath().append("Command.py");
 
 
-		File path=new File(ParsConf.getConfig()+"/projectype/Command/Command.py");
+		File path=new File(ParsConf.getConfig()+File.separatorChar+"projectype"+File.separatorChar+"command"+File.separatorChar+"Command.py");
 		IFile newCommand = srcFolder.getFile("Command.py");
 		if(!newCommand.exists()){
 
@@ -252,15 +252,15 @@ public class RaspProjectSupport {
 
 		srcFolder.getFile("gui.py");
 
-		srcFolder = newProject.getFolder("/src");
+		srcFolder = newProject.getFolder(File.separatorChar+"src");
 		System.out.println(newProject);
 		System.out.println(srcFolder);
 		srcFolder.getFullPath().append("gui.py");
 
 
-		File path=new File(ParsConf.getConfig()+"/projectype/GUI/gui.py");
-		File path2=new File(ParsConf.getConfig()+"/projectype/GUI/main.py");
-		File path3=new File(ParsConf.getConfig()+"/projectype/GUI/MainFrame.py");
+		File path=new File(ParsConf.getConfig()+File.separatorChar+"projectype"+File.separatorChar+"gui"+File.separatorChar+"gui.py");
+		File path2=new File(ParsConf.getConfig()+File.separatorChar+"projectype"+File.separatorChar+"gui"+File.separatorChar+"main.py");
+		File path3=new File(ParsConf.getConfig()+File.separatorChar+"projectype"+File.separatorChar+"gui"+File.separatorChar+"MainFrame.py");
 		IFile newPy = srcFolder.getFile("gui.py");
 		IFile newPy2 = srcFolder.getFile("main.py");
 		IFile newPy3 = srcFolder.getFile("MainFrame.py");
