@@ -1,5 +1,6 @@
 package sdk.manager;
 
+import java.io.File;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -16,7 +17,7 @@ public class RVDList {
 	public RVDList() {
 		try {
 			Class.forName("org.sqlite.JDBC");
-		    Connection conn = DriverManager.getConnection("jdbc:sqlite:"+ParsConf.getConfig()+"/tools/virtual_devices.db"); 
+		    Connection conn = DriverManager.getConnection("jdbc:sqlite:"+ParsConf.getConfig()+File.separatorChar+"tools"+File.separatorChar+"virtual_devices.db"); 
 		    Statement stat = conn.createStatement();
 		    
 		    ResultSet rs = stat.executeQuery("SELECT * FROM devices"); 

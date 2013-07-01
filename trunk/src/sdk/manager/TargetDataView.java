@@ -28,7 +28,7 @@ public class TargetDataView {
 	    
 		final Shell shell = new Shell(window.getShell(), SWT.CLOSE | SWT.APPLICATION_MODAL);
 		shell.setText("List of Targets");
-		shell.setSize(720, 180);
+		shell.setSize(720, 250);
 		centerWindow(shell);
 		
 		GridLayout layout = new GridLayout(1, false);
