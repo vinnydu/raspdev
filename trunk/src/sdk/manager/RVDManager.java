@@ -79,7 +79,7 @@ public class RVDManager{
 		
 		
 		Label subTitleLabel2 = new Label(shell, SWT.NONE);
-		subTitleLabel2.setText("Parthenope University of Naples Project");
+		subTitleLabel2.setText("Parthenope University of Naples");
 //		subTitleLabel2.setFont( new Font(display,"Arial", 14, SWT.ITALIC ) );
 		GridData gridDataLabel2 = new GridData();
 		gridDataLabel2.horizontalAlignment = GridData.FILL;
@@ -277,7 +277,7 @@ public class RVDManager{
 		int deviceNumbers = 0;
 		try {
 			Class.forName("org.sqlite.JDBC");
-			Connection conn = DriverManager.getConnection("jdbc:sqlite:"+ParsConf.getConfig()+"/tools/virtual_devices.db"); 
+			Connection conn = DriverManager.getConnection("jdbc:sqlite:"+ParsConf.getConfig()+File.separatorChar+"tools"+File.separatorChar+"virtual_devices.db"); 
 			Statement stat = conn.createStatement();
 			ResultSet rs = stat.executeQuery("SELECT count(*) FROM devices"); 
 			rs.next();
