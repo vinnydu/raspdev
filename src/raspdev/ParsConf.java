@@ -129,7 +129,7 @@ public class ParsConf {
 
 
 	}
-	public void setFrameBuffer(String frameBufferWidth, String frameBufferHeight,int countxt){
+	public void setFrameBuffer(String frameBufferWidth, String frameBufferHeight){
 
 		File f=new File(pathConfig);
 
@@ -155,8 +155,8 @@ public class ParsConf {
 					else {
 
 						buffer.replace(sub+1,(text.length()*2),frameBufferHeight);
-						if(countxt==1)
-						buffer.append("\n");
+						
+						//buffer.append("\n");
 
 					}
 				}
