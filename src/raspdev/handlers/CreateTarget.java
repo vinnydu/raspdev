@@ -37,7 +37,7 @@ public class CreateTarget extends AbstractHandler{
 		    stat.executeUpdate("INSERT INTO targets (id, name, type, kernel, path) VALUES ('4', '2012-08-08-wheezy-armel.img', 'armel', 'kernel-qemu', '"+ ParsConf.getConfig()+ File.separatorChar +"system-images"+ File.separatorChar +"armel2012-08" + File.separatorChar + "')");
 		    stat.executeUpdate("INSERT INTO targets (id, name, type, kernel, path) VALUES ('5', '2012-10-28-wheezy-raspbian.img', 'raspbian', 'kernel-qemu', '"+ ParsConf.getConfig()+ File.separatorChar +"system-images"+ File.separatorChar +"raspbian2012-10" + File.separatorChar + "')");
 		    stat.executeUpdate("INSERT INTO targets (id, name, type, kernel, path) VALUES ('6', '2013-05-29-wheezy-armel.img', 'armel', 'kernel-qemu', '"+ ParsConf.getConfig()+ File.separatorChar +"system-images"+ File.separatorChar +"armel2013-05" + File.separatorChar + "')");
-		    stat.executeUpdate("INSERT INTO targets (id, name, type, kernel, path) VALUES ('7', '2013-15-25-wheezy-raspbian.img', 'raspbian', 'kernel-qemu', '"+ ParsConf.getConfig()+ File.separatorChar +"system-images"+ File.separatorChar +"raspbian2013-05" + File.separatorChar + "')");
+		    stat.executeUpdate("INSERT INTO targets (id, name, type, kernel, path) VALUES ('7', '2013-05-25-wheezy-raspbian.img', 'raspbian', 'kernel-qemu', '"+ ParsConf.getConfig()+ File.separatorChar +"system-images"+ File.separatorChar +"raspbian2013-05" + File.separatorChar + "')");
 		    conn.close();
 	    
 	    } catch (ClassNotFoundException e) {
