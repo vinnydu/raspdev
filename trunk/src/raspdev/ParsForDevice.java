@@ -20,7 +20,7 @@ public class ParsForDevice {
 	public void generatePars()
 	{
 		
-		path=new File(ParsConf.getConfig()+"/raspConf.xml").toString();
+		path=new File(ParsConf.getConfig()+File.separatorChar+"raspConf.xml").toString();
 		DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
 		DocumentBuilder dBuilder = null;
 
