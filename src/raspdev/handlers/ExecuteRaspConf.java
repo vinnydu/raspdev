@@ -103,6 +103,12 @@ public class ExecuteRaspConf extends AbstractHandler{
 	  	    
 	    	  
 	      }
+	 public static String getConfText()
+	 {
+		return  confText.getText();
+		
+		 
+	 }
 		public static void center(Shell shell) {
 
 			Rectangle bds = shell.getDisplay().getBounds();
