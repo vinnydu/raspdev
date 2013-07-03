@@ -1,12 +1,13 @@
 package raspdev.handlers;
 
-
+import java.io.File;
+import java.io.IOException;
 import org.eclipse.core.commands.AbstractHandler;
 import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.ExecutionException;
-import org.eclipse.ui.IWorkbenchWindow;
-import org.eclipse.ui.handlers.HandlerUtil;
-import sdk.manager.RVDManager;
+
+import raspdev.ParsConf;
+
 
 /**
  * Our sample handler extends AbstractHandler, an IHandler base class.
@@ -27,12 +28,39 @@ public class ExecuteVirtual extends AbstractHandler {
 	 * from the application context.
 	 */
 	public Object execute(ExecutionEvent event) throws ExecutionException {
-		IWorkbenchWindow window = HandlerUtil.getActiveWorkbenchWindowChecked(event);
-		RVDManager rvd = new RVDManager();
-		rvd.managerOn( window);
+
+    Runtime run = Runtime.getRuntime();
+    File fscript=new File(ParsConf.getConfig()+File.separatorChar+"tools"+File.separatorChar);
+	 if (System.getProperty("os.name").startsWith("Windows")) {
+
+		    Process pr;
+			try {
+				pr = run.exec("raspdev.bat rvd", null,fscript);
+				pr.waitFor();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		    }
+	 else{
+		
+	    Process pr;
+		try {
+			pr = run.exec("./raspdev rvd", null,fscript);
+			pr.waitFor();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	    }
 		return null;
-	
-	
-	}
+   
+}
 
 }
