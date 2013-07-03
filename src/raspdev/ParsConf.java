@@ -75,32 +75,7 @@ public class ParsConf {
 		doc.getDocumentElement().normalize();
 	}
 
-	public void setEmuValues(String qemuPath, String qemuKernel, String soPath, String portForWard)
-	{
-		XMLOutputter xmlOutput = new XMLOutputter();
-		SAXBuilder builder = new SAXBuilder();
-
-		// display nice nice
-		xmlOutput.setFormat(Format.getPrettyFormat());
-		try {
-
-			org.jdom.Document docj = (org.jdom.Document) builder.build(path);
-			Element rootNode = docj.getRootElement();
-			rootNode.getChild("qemu-path").setText(qemuPath);
-			rootNode.getChild("qemu-kernel").setText(qemuKernel);
-			rootNode.getChild("raspbian-path").setText(soPath);
-			rootNode.getChild("port").setText(portForWard);
-			xmlOutput.output(docj, new FileWriter(path));
-
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (JDOMException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
-
+	
 	public void setHostValues(String user,String host, String hostPath, String projectDeploy, String privateKey){
 
 		XMLOutputter xmlOutput = new XMLOutputter();
