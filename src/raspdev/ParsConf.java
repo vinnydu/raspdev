@@ -50,11 +50,11 @@ public class ParsConf {
 		if(projectDirectory!=null){
 			path= projectDirectory.getAbsolutePath();
 			pathConfig = projectDirectory.getAbsolutePath();
-			pathConfig = pathConfig+"/config"+"/config.txt";
-			path =path+"/config"+"/raspConf.xml";
+			pathConfig = pathConfig+File.separatorChar+"config"+File.separatorChar+"config.txt";
+			path =path+File.separatorChar+"config"+File.separatorChar+"raspConf.xml";
 			System.out.println(path);}
 		else {
-			path=new File(pathForConf+"/raspConf.xml").toString();
+			path=new File(pathForConf+File.separatorChar+"raspConf.xml").toString();
 		}
 		DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
 		DocumentBuilder dBuilder = null;
