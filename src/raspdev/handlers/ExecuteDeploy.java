@@ -41,9 +41,8 @@ public class ExecuteDeploy extends AbstractHandler {
 		String user = doc.getElementsByTagName("user").item(0).getTextContent();
 		String host = doc.getElementsByTagName("host").item(0).getTextContent();
 		String hostPath = doc.getElementsByTagName("host-path").item(0).getTextContent();
-		String pathProg = doc.getElementsByTagName("path-project-todeploy").item(0).getTextContent();
-		String privateKey = doc.getElementsByTagName("private-key").item(0).getTextContent();
-
+		String pathProg = ParsConf.getPathProject();
+		String privateKey = ParsConf.getConfig()+File.separatorChar+"pyscript"+File.separatorChar+"id_raspberry_rsa";
 		File filename = new File(pathProg);
 		String path = filename.getAbsolutePath();
 		SecureContext context = new SecureContext(user,host);
