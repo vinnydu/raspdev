@@ -1,6 +1,5 @@
 package raspdev.wizards;
 
-import java.io.File;
 
 import org.eclipse.jface.wizard.WizardPage;
 import org.eclipse.swt.SWT;
@@ -22,14 +21,9 @@ public class PageOne extends WizardPage{
 	private Text userText;
 	private Text hostText;
 	private Text hostPathText;
-	private Text projectPathToDeployText;
-	private Text privateKeyText;
-	
-	private String user;
+    private String user;
 	private String host;
 	private String hostPath;
-	private String projectPathToDeploy;
-	private String privateKey;
 
 	public PageOne() {
 		// TODO Auto-generated constructor stub
@@ -128,18 +122,6 @@ public class PageOne extends WizardPage{
 		hostPathText = new Text(group, SWT.BORDER);
 		hostPathText.setText("/home/pi/apps/");
 		hostPathText.setLayoutData(gridData);
-		Label label4 = new Label(group, SWT.NONE);
-		label4.setText("Project path to deploy");
-
-		projectPathToDeployText = new Text(group, SWT.BORDER);
-		projectPathToDeployText.setText(System.getProperty("user.home")+File.separatorChar+"workspace"+File.separatorChar);
-		projectPathToDeployText.setLayoutData(gridData);
-		Label label5 = new Label(group, SWT.NONE);
-		label5.setText("Private key path");
-
-		privateKeyText = new Text(group, SWT.BORDER);
-		privateKeyText.setText(System.getProperty("user.home")+File.separatorChar+"raspdevSDK"+File.separatorChar+"id_raspberry_rsa");
-		privateKeyText.setLayoutData(gridData);
 		 
 		setPageComplete(false);
 
@@ -162,9 +144,7 @@ public class PageOne extends WizardPage{
 
 		hostPath = hostPathText.getText();
 
-		projectPathToDeploy = projectPathToDeployText.getText();
-		privateKey = privateKeyText.getText();
-		pc.setHostValues(user, host, hostPath, projectPathToDeploy, privateKey);
+		pc.setHostValues(user, host, hostPath);
 
 	}
 	
