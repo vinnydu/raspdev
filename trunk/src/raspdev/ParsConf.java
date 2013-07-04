@@ -27,10 +27,10 @@ public class ParsConf {
 
 	private Document doc = null;
 	private IProject pro;
-	private File projectDirectory;
+	private static File projectDirectory;
 	private String path;
 	private static String pathForConf;
-	private String pathConfig;
+	private static String pathConfig;
 	public ParsConf()  {
 		// TODO Auto-generated constructor stub
 		// Get the currently selected project from the editor
@@ -76,7 +76,7 @@ public class ParsConf {
 	}
 
 	
-	public void setHostValues(String user,String host, String hostPath, String projectDeploy, String privateKey){
+	public void setHostValues(String user,String host, String hostPath){
 
 		XMLOutputter xmlOutput = new XMLOutputter();
 		SAXBuilder builder = new SAXBuilder();
@@ -90,8 +90,6 @@ public class ParsConf {
 			rootNode.getChild("user").setText(user);
 			rootNode.getChild("host").setText(host);
 			rootNode.getChild("host-path").setText(hostPath);
-			rootNode.getChild("path-project-todeploy").setText(projectDeploy);
-			rootNode.getChild("private-key").setText(privateKey);
 			xmlOutput.output(docj, new FileWriter(path));
 
 		} catch (IOException e) {
@@ -153,7 +151,11 @@ public class ParsConf {
 
 	}
 
-
+    public static String getPathProject(){
+    	
+    	return projectDirectory.getAbsolutePath()+File.separatorChar;
+    	
+    }
     public static String getConfig() {
     	
     	return pathForConf;
