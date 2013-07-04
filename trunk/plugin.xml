@@ -38,6 +38,16 @@
             categoryId="raspdev.commands.category"
             id="raspdev.commands.sampleCommand6">
       </command>
+       <command
+            name="Generate ssh key"
+            categoryId="raspdev.commands.category"
+            id="raspdev.commands.sampleCommand7">
+      </command>
+       <command
+            name="Generate setup.py"
+            categoryId="raspdev.commands.category"
+            id="raspdev.commands.sampleCommand8">
+      </command>
    </extension>
    <extension
          point="org.eclipse.ui.handlers">
@@ -65,6 +75,14 @@
             commandId="raspdev.commands.sampleCommand6"
             class="raspdev.handlers.ModifyConfig">
       </handler>
+      <handler
+            commandId="raspdev.commands.sampleCommand7"
+            class="raspdev.handlers.ExecuteKey">
+      </handler>
+      <handler
+            commandId="raspdev.commands.sampleCommand8"
+            class="raspdev.handlers.ExecuteSetup">
+      </handler>
    </extension>
    
    <extension
@@ -76,12 +94,16 @@
                id="raspdev.menus.sampleMenu">
 
             <command
-                  commandId="raspdev.commands.sampleCommand2"
-                  id="raspdev.menus.sampleCommand2">
-            </command>
-            <command
                   commandId="raspdev.commands.sampleCommand3"
                   id="raspdev.menus.sampleCommand3">
+            </command>
+             <command
+                  commandId="raspdev.commands.sampleCommand7"
+                  id="raspdev.menus.sampleCommand7">
+            </command>
+             <command
+                  commandId="raspdev.commands.sampleCommand8"
+                  id="raspdev.menus.sampleCommand8">
             </command>
              <command
                   commandId="raspdev.commands.sampleCommand5"
@@ -92,6 +114,12 @@
                   id="raspdev.menus.sampleCommand6"
                   label="Modify Configtxt"
                   style="push">
+            </command>
+           
+            
+            <command
+                  commandId="raspdev.commands.sampleCommand2"
+                  id="raspdev.menus.sampleCommand2">
             </command>
          </menu>
       </menuContribution>
