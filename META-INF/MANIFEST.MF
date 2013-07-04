@@ -21,7 +21,8 @@ Require-Bundle: org.eclipse.ui,
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Bundle-ClassPath: lib/jtar-1.1.jar,
- .
+ .,
+ lib/sqlite-jdbc-3.7.15-SNAPSHOT-2.jar
 Export-Package: raspdev.natures,
  raspdev.projects
 Import-Package: org.jdom.output,
