@@ -22,12 +22,12 @@ With a single download, the Raspdev SDK includes everything you need to begin de
 2 - Download preconfigured image system from http://students.uniparthenope.it/raspdev/download.html. (You can also download standard system images from http://www.raspberrypi.org/downloads)
 
 3 - Put the image into the appropriate folders.
-`*`e.g.: "2012-10-28-wheezy-raspbian.img" in raspdevSDK/system-images/raspbian2012-10
+
+e.g.: "2012-10-28-wheezy-raspbian.img" in raspdevSDK/system-images/raspbian2012-10
 
 4 - Go in raspdevSDK/tools/
 
 If you are on Unix system run: ./raspdev help
-
 If you are on Windows system run: raspdev.bat help
 
 5 - Done! Enjoy the Raspberry development.
