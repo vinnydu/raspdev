@@ -1,9 +1,0 @@
-Scaricare il .zip del plugin.
-
-Scompattare il plugin, posizionando raspdev e raspdevConf nella home directory.
-
-Disinstallare versioni di pydev presenti su Eclipse.
-
-Installare in Eclipse con "install new software", inserendo il path della directory raspdev (uncheck "group items by category").
-
-Configurare il {{{RaspConf.xml}}} per la propria macchina, con le rispettive GUI, in new Project-->RaspProject e OpenDeviceManager.
