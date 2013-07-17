@@ -1,0 +1,9 @@
+Download the compress plugin file.
+
+Unzip the plugin on your pc.
+
+Uninstall these versions of PyDev on Eclipse.
+
+Install in Eclipse with "install new software", entering the path of the directory raspdev (uncheck "group items by category").
+
+Configure the  {{{RaspConf.xml}}} to your machine, with their GUI in new Project -> RaspProject.
