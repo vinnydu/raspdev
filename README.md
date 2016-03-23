@@ -7,6 +7,19 @@ RaspDev is a Raspberry SDK, framework and plugin for Eclipse, for Python softwar
  - Release 1.6.0
 
 
+## Requirements
+
+ - Java 6 or higher
+ - Python 2.6 or newer
+ - Eclipse 4.2 or newer
+ - Raspbian Image
+ - Sshpass
+ - Putty To generate the ssh key.(only for Windows)
+ - URL for pre-configured Soft-float Debian Wheezy
+
+Image 2013-05-29 with apps directory, WxPython, enable ssh, it keyboard layout.
+https://dl.dropboxusercontent.com/s/ak3l8ibi18ltsot/2013-05-29-wheezy-armel.img?token_hash=AAGwV9ngXZnZB1NPwLS6GTzVgsxPctSYd5LqHQB-zx1zsg&dl=1
+
 ## Integration in Eclipse.
 
 - Creation of four kinds of project: empty, command, daemon, GUI.
@@ -32,3 +45,11 @@ When using tools raspdev in the menubar,keep the selection on the current projec
 
  - RaspdevSDK: https://web.uniparthenope.it/raspdev/RaspdevSDKPresentation.pdf
  - RaspdevPlugin: https://web.uniparthenope.it/raspdev/raspdevPlugin.pdf
+
+
+## About Raspdev
+
+Raspdev has been supported by "Progetto Sebeto" of University of Naples Parthenope.
+Continues to be maintained by the same authors:
+Sabino Parziale and Vincenzo Duraccio
+with open source license: EPL (Eclipse Public License)
