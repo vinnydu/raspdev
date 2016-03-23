@@ -33,11 +33,11 @@ https://dl.dropboxusercontent.com/s/ak3l8ibi18ltsot/2013-05-29-wheezy-armel.img?
 
 ## Use of raspdevPlugin:
 
-Every time you start eclipse, select the directory raspdevSDK on menubar: RaspDev-->Select RaspdevSDK and give ok.
-The first time you use raspdevSDK with the plugin, you have to create the target with: RaspDev -> Create Target. After selecting the sdk directory.
-When you create a device, generate the key for the deploy, go to menubar.
-Before the deploy, create the setup.py, using the tool in menubar.
-Configure the file raspConf.xml for deployment.
+Every time you start eclipse, select the directory raspdevSDK on menubar: RaspDev, Select RaspdevSDK and give ok. <br />
+The first time you use raspdevSDK with the plugin, you have to create the target with: RaspDev, Create Target. After selecting the sdk directory. <br />
+When you create a device, generate the key for the deploy, go to menubar. <br />
+Before the deploy, create the setup.py, using the tool in menubar. <br />
+Configure the file raspConf.xml for deployment. <br />
 When using tools raspdev in the menubar,keep the selection on the current project.
 
 
@@ -49,7 +49,7 @@ When using tools raspdev in the menubar,keep the selection on the current projec
 
 ## About Raspdev
 
-Raspdev has been supported by "Progetto Sebeto" of University of Naples Parthenope.
-Continues to be maintained by the same authors:
-Sabino Parziale and Vincenzo Duraccio
-with open source license: EPL (Eclipse Public License)
+Raspdev has been supported by "Progetto Sebeto" of University of Naples Parthenope. <br />
+Continues to be maintained by the same authors <br />
+Sabino Parziale and Vincenzo Duraccio <br />
+with open source license: EPL (Eclipse Public License) <br />
